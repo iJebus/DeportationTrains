@@ -18,32 +18,12 @@ public class PersonEngine {
 	//method to pull in data
 	public ArrayList importData(){
 		int number_people = 0;
-		ArrayList<Person> people = new ArrayList<Person>();
-		
-		for (int i = 0; i < number_people; i++){
-			//import one by one
-			
-			//add to end of array
-		}
+		ArrayList[] people = new ArrayList[number_people];
 		
 		return null;
 	}
 	
 	
 	//method to create person object
-	private class Person {
-		
-		String caseFile;
-		int doc;
-		String name;
-		String citizenship;
-		String ethnicity;
-		String sex;
-		String birth;
-		String occupation;
-		String marriage;
-		String imgRef;
-		
-	}
 	
 }

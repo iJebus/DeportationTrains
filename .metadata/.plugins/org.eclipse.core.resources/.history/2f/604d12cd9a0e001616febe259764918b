@@ -31,18 +31,7 @@ public class PersonEngine {
 	
 	
 	//method to create person object
-	private class Person {
-		
-		String caseFile;
-		int doc;
-		String name;
-		String citizenship;
-		String ethnicity;
-		String sex;
-		String birth;
-		String occupation;
-		String marriage;
-		String imgRef;
+	private class Person() {
 		
 	}
 	
