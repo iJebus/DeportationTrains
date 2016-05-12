@@ -1,9 +1,0 @@
-package main;
-
-public class TrainEngine {
-
-	public static void main (String []args){
-		
-	}
-	
-}
