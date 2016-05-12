@@ -50,7 +50,7 @@ def generate_deportee_feature_collection(name, data):
     """Generate GeoJSON feature collection for given individual and data."""
     feature_collection = {
         "type": "FeatureCollection",
-        "features": []
+        "features": [],
     }
     feature_collection['features'] = [generate_feature(row) for row in data if row['gsx$name']['$t'] == name]
     return feature_collection
@@ -60,12 +60,14 @@ def main():
     r = requests.get(gsheets)
     data = r.json()['feed']['entry']
     deportees = list(set([x['gsx$name']['$t'] for x in data]))
+    wrapper = {}
+    
+    for deportee in deportees:
+         deportee_feature_collection = generate_deportee_feature_collection(deportee, data)
+         wrapper[deportee] = deportee_feature_collection
 
     with open('data.geojson', 'w') as output:
-        for deportee in deportees:
-            deportee_feature_collection = generate_deportee_feature_collection(deportee, data)
-            geojson = json.dumps(deportee_feature_collection)
-            output.write(geojson)
+        json.dump(wrapper, output, sort_keys=True, indent=4)
 
 if __name__ == "__main__":
     main()
