@@ -12,3 +12,12 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2016-04-30 14:27:14.089
+!MESSAGE The project: DeportationTrains which is referenced by the classpath, does not exist.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2016-04-30 14:27:32.282
+!MESSAGE The project: DeportationTrains which is referenced by the classpath, does not exist.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2016-04-30 14:28:03.636
+!MESSAGE The project: DeportationTrains which is referenced by the classpath, does not exist.
