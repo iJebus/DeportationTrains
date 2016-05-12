@@ -1,6 +1,6 @@
 L.Icon.Default.imagePath = 'img';
 
-var mymap = L.map('main-map').setView([51.505, -0.09], 13);
+var mymap = L.map('main-map').setView([0, 0], 2);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
     maxZoom: 18,
@@ -11,7 +11,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 }).addTo(mymap);
 
 
-L.marker([51.5, -0.09]).addTo(mymap)
+/*L.marker([51.5, -0.09]).addTo(mymap)
     .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
 L.circle([51.508, -0.11], 500, {
@@ -24,7 +24,7 @@ L.polygon([
     [51.509, -0.08],
     [51.503, -0.06],
     [51.51, -0.047]
-]).addTo(mymap).bindPopup("I am a polygon.");
+]).addTo(mymap).bindPopup("I am a polygon.");*/
 
 
 var popup = L.popup();
@@ -37,3 +37,12 @@ function onMapClick(e) {
 }
 
 mymap.on('click', onMapClick);
+
+var myLayer = L.geoJson().addTo(mymap);
+
+$.getJSON('data.geojson', function(data) {
+    console.log('hard coding luey mo data while testing');
+    for (var i=0; i<data['Luey Mo']['features'].length; i++) {
+        myLayer.addData(data['Luey Mo']['features'][i]);
+    }
+})
