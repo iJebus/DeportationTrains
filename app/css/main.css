@@ -3,10 +3,21 @@ body {
   padding-bottom: 20px;
 }
 
+.tab-content {
+  margin-top: 20px;
+}
+
 #index-sidebar img {
   padding-top: 20px;
 }
 
 #main-map {
   height: 600px;
+  background-color: #101010;
+  border: medium solid gray;
+  border-radius: 5px;
+}
+
+#filters .btn {
+  margin: 20px 0;
 }
