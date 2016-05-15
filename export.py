@@ -43,16 +43,21 @@ def generate_feature(row):
             "trainidentifier": row['gsx$trainidentifier']['$t']
         },
         "id": row['gsx$uniquepersonidentifier']['$t']
-    }
+    }   
     return feature
+
+
 
 def generate_deportee_feature_collection(name, data):
     """Generate GeoJSON feature collection for given individual and data."""
     feature_collection = {
         "type": "FeatureCollection",
         "features": [],
+        "properties": {}
     }
     feature_collection['features'] = [generate_feature(row) for row in data if row['gsx$name']['$t'] == name]
+    feature_collection['properties']['start'] = feature_collection['features'][0]['properties']['country']
+    feature_collection['properties']['end'] = feature_collection['features'][-1]['properties']['country']
     return feature_collection
 
 def main():
@@ -60,11 +65,16 @@ def main():
     r = requests.get(gsheets)
     data = r.json()['feed']['entry']
     deportees = list(set([x['gsx$name']['$t'] for x in data]))
-    wrapper = {}
+    trains = list(set([x['gsx$trainidentifier']['$t'] for x in data]))
+    wrapper = {
+        "trains": trains,
+        "persons": deportees,
+        "geojson": {}
+    }
     
     for deportee in deportees:
          deportee_feature_collection = generate_deportee_feature_collection(deportee, data)
-         wrapper[deportee] = deportee_feature_collection
+         wrapper['geojson'][deportee] = deportee_feature_collection
 
     with open('data.geojson', 'w') as output:
         json.dump(wrapper, output, sort_keys=True, indent=4)
