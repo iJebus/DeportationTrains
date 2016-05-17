@@ -14,12 +14,14 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="map1.css">
+
 
   <script src="http://www.webglearth.com/v2/api.js"></script>
   <script>
     function initialize() {
       var earth = new WE.map('main-map', {
-        sky: true, 
+        sky: true,
         atmosphere: true,
         zooming: false
       });
@@ -78,9 +80,41 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <h2>Filters</h2>
         <form>
           <div class="form-group">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">KeyDocuments <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">ArrestRecord</a></li>
+                  <li><a href="#">TranscriptOfHearing</a></li>
+                  <li><a href="#">Memorandom of acting secondary</a>
+                    <li>
+
+                </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">TextualNarrative <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Synthesis of their experience</a></li>
+                    <li><a href="#">Other</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+      <!--<li class="active"><a data-toggle="pill" href="#trains">KeyDocuments</a></li>
+<li><a data-toggle="pill" href="#persons">TextualNarrative</a></li>
+                 </ul>
+               </div>
+           </form>-->
+
+      <!--<h2>Filters</h2>
+        <form>
+            
+          <div class="form-group">
+              
             <select class="form-control">
               <option>1</option>
               <option>2</option>
@@ -89,6 +123,21 @@
               <option>5</option>
             </select>
           </div>
+            <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a data-toggle="pill" href="#trains">KeyDocuments</a></li>
+          <li><a data-toggle="pill" href="#persons">TextualNarrative</a></li>
+        </ul>
+
+            <div class="tab-content">
+                <div id="KeyDocuments" class="tab-pane fade in active">
+                <select class="form-control"></select>
+                </div>
+           <div id="TextualNarrative" class="tab-pane fade">
+            <select class="form-control"></select>
+          </div>
+        </div>
+        
+            <button type="button" class="btn btn-primary">Search</button>
           <div class="form-group">
 
             <div class="radio">
@@ -105,7 +154,7 @@
             </div>
           </div>
         </form>
-      </div>
+      </div>-->
       <div class="col-md-10">
         <div id="main-map"></div>
       </div>

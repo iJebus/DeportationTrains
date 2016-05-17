@@ -1,1 +1,0 @@
-Just a basic demonstration of leaflet animation with geojson data points. No timesliders dates or anything, will be using a different plugin later. Incorporating dates will be difficult given incomplete data and the different formats that other plugins use to show time in geojson.  

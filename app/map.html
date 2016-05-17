@@ -53,6 +53,24 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2" id="filters">
+        <h2>Timeline</h2>
+        <div class="btn-group btn-group-md">
+          <button type="button" class="btn btn-default button-skip-backward">
+             <span class="glyphicon glyphicon-fast-backward"></span>
+             </button>
+          <button type="button" class="btn btn-default button-pause">
+             <span class="glyphicon glyphicon-pause"></span>
+             </button>
+          <!--<button type = "button" class = "btn btn-default button-stop">
+             <span class="glyphicon glyphicon-stop"></span>
+             </button>-->
+          <button type="button" class="btn btn-default button-play">
+             <span class="glyphicon glyphicon-play"></span>
+             </button>
+          <button type="button" class="btn btn-default button-skip-forward">
+             <span class="glyphicon glyphicon-fast-forward"></span>
+             </button>
+        </div>
         <h2>Filters</h2>
         <ul class="nav nav-pills nav-stacked">
           <li class="active"><a data-toggle="pill" href="#trains">Trains</a></li>
@@ -67,10 +85,10 @@
             <select class="form-control"></select>
           </div>
         </div>
-        
+
         <div class="text-center">
-        <button type="button" class="btn btn-primary">Apply</button>
-        <button type="button" class="btn btn-danger">Reset</button>
+          <button type="button" class="btn btn-primary">Apply</button>
+          <button type="button" class="btn btn-danger">Reset</button>
         </div>
 
         <!--<form>
