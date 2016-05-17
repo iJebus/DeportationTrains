@@ -21,3 +21,16 @@ body {
 #filters .btn {
   margin: 20px 0;
 }
+.container {
+    margin-top:5px;
+}
+.btn-default {
+background: #000000;
+color:aliceblue;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background: #a6a6a6;
+}
+.jumborton {
+    height: 100px;
+}
