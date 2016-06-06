@@ -4,10 +4,10 @@ L.Icon.Default.imagePath = 'img';
 // Initial view and map init
 var mymap = L.map('main-map', {
     maxBounds: L.latLngBounds(
-        L.latLng(-90, -180), 
+        L.latLng(-90, -180),
         L.latLng(90, 180)
     )
-}).setView([0, 0], 1);
+}).setView([38, -97], 4);
 
 // Basemap
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
@@ -109,7 +109,7 @@ var geojsonMarkerOptions = {
     fillOpacity: 0.8
 };
 
-function onEachFeature(feature, layer) {
+/*function onEachFeature(feature, layer) {
     var table = document.createElement('table');
     table.className = "table";
     for (var i in feature.properties) {
@@ -123,7 +123,7 @@ function onEachFeature(feature, layer) {
         table.appendChild(row);
     }
     layer.bindPopup(table);
-}
+}*/
 
 function filterFeature(filter) {
     /* Experimenting with clearing layers based on content */

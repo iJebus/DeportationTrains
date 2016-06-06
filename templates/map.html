@@ -1,16 +1,16 @@
-{% extends "base.html" %} 
-{% block title %}Map{% endblock title %} 
-{% block description %}Mapping deportees{% endblock description %} 
+{% extends "base.html" %}
+{% block title %}Map{% endblock title %}
+{% block description %}Mapping deportees{% endblock description %}
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/leaflet.css') }}" rel="stylesheet" />
-{% endblock head %} 
+{% endblock head %}
 
 {% block content %}
 <div class="container">
-    <div class="row">
-      <div class="col-md-2" id="filters">
-        <h2>Timeline</h2>
+    <div class="row" id="map-row">
+      <div class="col-md-4" id="filters">
+        <!--<h3>Timeline</h3>
         <div class="btn-group btn-group-md">
           <button type="button" class="btn btn-default button-skip-backward">
              <span class="glyphicon glyphicon-fast-backward"></span>
@@ -24,33 +24,49 @@
           <button type="button" class="btn btn-default button-skip-forward">
              <span class="glyphicon glyphicon-fast-forward"></span>
              </button>
-        </div>
-        <h2>Filters</h2>
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a data-toggle="pill" href="#trains">Trains</a></li>
-          <li><a data-toggle="pill" href="#persons">Persons</a></li>
-        </ul>
+        </div>-->
+        <h2>May - June 1919 Circuit</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Passengers</h3>
+                <p>Luey Mo</p>
+                <p>Carmelino Prete</p>
+                <p>George Jiminez</p>
+                <p>Stefano Grosso</p>
+                <p>Hannah Sullivan</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Show By</h3>
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a data-toggle="pill" href="#trains">Trains</a></li>
+                  <li><a data-toggle="pill" href="#persons">Nationality</a></li>
+                  <li><a data-toggle="pill" href="#persons">Primary offence</a></li>
+                  <li><a data-toggle="pill" href="#persons">Initial detention type</a></li>
+                </ul>
 
-        <div class="tab-content">
-          <div id="trains" class="tab-pane fade in active">
-            <select class="form-control"></select>
-          </div>
-          <div id="persons" class="tab-pane fade">
-            <select class="form-control"></select>
-          </div>
+                <div class="tab-content">
+                  <div id="trains" class="tab-pane fade in active">
+                    <select class="form-control"></select>
+                  </div>
+                  <div id="persons" class="tab-pane fade">
+                    <select class="form-control"></select>
+                  </div>
+                </div>
+            </div>
         </div>
 
+        <hr>
         <div class="text-center">
           <button type="button" class="btn btn-primary">Apply</button>
           <button type="button" class="btn btn-danger">Reset</button>
         </div>
 
       </div>
-      <div class="col-md-10">
+      <div class="col-md-8">
         <div id="main-map"></div>
       </div>
     </div>
-{% endblock content %} 
+{% endblock content %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>

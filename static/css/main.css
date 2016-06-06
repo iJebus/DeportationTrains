@@ -31,6 +31,10 @@ color:aliceblue;
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
     background: #a6a6a6;
 }
-.jumborton {
+.jumboton {
     height: 100px;
+}
+
+#map-row {
+    padding-top: 20px;
 }
