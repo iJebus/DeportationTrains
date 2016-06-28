@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Map{% endblock title %}
+{% block description %}Mapping deportees{% endblock description %}
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/leaflet.css') }}" rel="stylesheet" />
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    <div class="row" id="map-row">
+      <div class="col-md-4" id="filters">
+        <!--<h3>Timeline</h3>
+        <div class="btn-group btn-group-md">
+          <button type="button" class="btn btn-default button-skip-backward">
+             <span class="glyphicon glyphicon-fast-backward"></span>
+             </button>
+          <button type="button" class="btn btn-default button-pause">
+             <span class="glyphicon glyphicon-pause"></span>
+             </button>
+          <button type="button" class="btn btn-default button-play">
+             <span class="glyphicon glyphicon-play"></span>
+             </button>
+          <button type="button" class="btn btn-default button-skip-forward">
+             <span class="glyphicon glyphicon-fast-forward"></span>
+             </button>
+        </div>-->
+        <h2>Luey Mo</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Key Documents</h3>
+                <p>Arrest Record</p>
+                <p>Transcript of Arrest</p>
+                <p>Departure Documentation</p>
+            </div>
+
+            <div class="col-md-12">
+                <h3>Their Story</h3>
+                <p>
+                    Born in China, came to USA via Mexico after working as a merchant and labourer for several years. Begins working for the US Army Quartermasters but is arrested for theft in 1919. He is then held in the San Antonio County Jail before being transfered to the Southwestern Insane Asylum. Became a Public Charge and embarked on a deportation train bound West on January 2nd, 1920. The train passed through ... ... ... before arriving in San Francisco, where Luey Mo was then deported to Hong Kong via Hawaii, Japan, and China.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+        <div class="text-center">
+            <img src="http://placehold.it/250x200" alt="Placeholder Image">
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div id="main-map"></div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+<script src="{{ url_for('static', filename='js/rainbowvis.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main-map.js') }}"></script>
+{% endblock scripts %}

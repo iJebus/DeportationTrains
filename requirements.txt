@@ -3,5 +3,8 @@ Flask==0.11
 Frozen-Flask==0.12
 itsdangerous==0.24
 Jinja2==2.8
+livereload==2.4.1
 MarkupSafe==0.23
+six==1.10.0
+tornado==4.3
 Werkzeug==0.11.10

@@ -2,6 +2,7 @@ import sys
 
 from flask import Flask, render_template
 from flask_frozen import Freezer
+from livereload import Server
 
 
 DEBUG = True
@@ -9,6 +10,7 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 freezer = Freezer(app)
+server = Server(app.wsgi_app)
 
 @app.route('/')
 def index():
@@ -26,8 +28,14 @@ def pick_train():
 def project():
     return render_template('project.html')
 
+@app.route('/individual')
+def individual():
+    return render_template('individual.html')
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'create':
         freezer.freeze()
     else:
-        app.run()
+        server.watch('static')
+        server.watch('templates')
+        server.serve(open_url=True, host='localhost', port=5000)
