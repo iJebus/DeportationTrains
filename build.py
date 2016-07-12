@@ -16,19 +16,19 @@ server = Server(app.wsgi_app)
 def index():
     return render_template('index.html')
 
-@app.route('/map')
+@app.route('/map/')
 def map():
     return render_template('map.html')
 
-@app.route('/pick-train')
+@app.route('/pick-train/')
 def pick_train():
     return render_template('pick-train.html')
 
-@app.route('/project')
+@app.route('/project/')
 def project():
     return render_template('project.html')
 
-@app.route('/individual')
+@app.route('/individual/')
 def individual():
     return render_template('individual.html')
 
@@ -38,4 +38,4 @@ if __name__ == '__main__':
     else:
         server.watch('static')
         server.watch('templates')
-        server.serve(open_url=True, host='localhost', port=5000)
+        server.serve(open_url=True, host='0.0.0.0', port=5000)
