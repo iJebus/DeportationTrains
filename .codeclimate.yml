@@ -1,0 +1,19 @@
+engines:
+  pep8:
+    enabled: true
+  markdownlint:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  fixme:
+    enabled: true
+  
+ratings:
+  paths:
+  - "static/css/main.css"
+  - "static/js/main-map.js"
+  - "export.py"
+  - "build.py"
+  - "README.md"
