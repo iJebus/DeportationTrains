@@ -20,6 +20,10 @@ def index():
 def map():
     return render_template('map.html')
 
+@app.route('/cluster-map/')
+def time_map():
+    return render_template('cluster-map.html')
+
 @app.route('/pick-train/')
 def pick_train():
     return render_template('pick-train.html')
@@ -38,4 +42,4 @@ if __name__ == '__main__':
     else:
         server.watch('static')
         server.watch('templates')
-        server.serve(open_url=True, host='0.0.0.0', port=5000)
+        server.serve(open_url_delay=True, host='0.0.0.0', port=5000)

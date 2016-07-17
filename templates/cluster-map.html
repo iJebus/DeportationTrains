@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Time Map{% endblock title %}
+{% block description %}Mapping deportees{% endblock description %}
+
+{% block head %}
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.Default.css" />
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    <div class="row" id="map-row">
+      </div>
+      <div class="col-md-12">
+        <div id="main-map"></div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster-src.js"></script>
+<script src="{{ url_for('static', filename='js/time-map.js') }}"></script>
+{% endblock scripts %}
