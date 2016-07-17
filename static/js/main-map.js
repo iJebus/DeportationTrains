@@ -1,5 +1,5 @@
 // Map Config
-L.Icon.Default.imagePath = 'img';
+L.Icon.Default.imagePath = '/img';
 
 // Initial view and map init
 var mymap = L.map('main-map', {
@@ -48,7 +48,7 @@ mymap.on('click', onMapClick);*/
 
 // var myLayer = L.geoJson().addTo(mymap);
 
-$.getJSON('static/data.geojson', function (data) {
+$.getJSON('/static/data.geojson', function (data) {
     jsonData = data;
 
     for (var i in data.persons) {
@@ -109,7 +109,7 @@ var geojsonMarkerOptions = {
     fillOpacity: 0.8
 };
 
-/*function onEachFeature(feature, layer) {
+function onEachFeature(feature, layer) {
     var table = document.createElement('table');
     table.className = "table";
     for (var i in feature.properties) {
@@ -123,7 +123,7 @@ var geojsonMarkerOptions = {
         table.appendChild(row);
     }
     layer.bindPopup(table);
-}*/
+}
 
 function filterFeature(filter) {
     /* Experimenting with clearing layers based on content */
