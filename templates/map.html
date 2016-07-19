@@ -3,7 +3,10 @@
 {% block description %}Mapping deportees{% endblock description %}
 
 {% block head %}
-<link href="{{ url_for('static', filename='css/leaflet.css') }}" rel="stylesheet" />
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.timedimension.control.css') }}"></script>
 {% endblock head %}
 
 {% block content %}
@@ -48,7 +51,11 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster-src.js"></script>
+<script src="{{ url_for('static', filename='js/iso8601.js') }}"></script>
+<script src="{{ url_for('static', filename='js/leaflet.timedimension.src.withlog.js') }}"></script>
 <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 {% endblock scripts %}
