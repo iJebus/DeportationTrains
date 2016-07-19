@@ -18,3 +18,19 @@ function filterFeature(filter) {
     })
     return result;
 }
+
+function getIcon(feature, latlng) {
+    if (feature.properties.event === 'Arrest') {
+        return L.marker(latlng, {icon: arrestIcon});
+    } else if (feature.properties.event === 'Birth') {
+        return L.marker(latlng, {icon: birthIcon});
+    } else if (feature.properties.event === 'Detention') {
+        return L.marker(latlng, {icon: detentionIcon});
+    } else if (feature.properties.event === 'Migration') {
+        return L.marker(latlng, {icon: migrationIcon});
+    } else if (feature.properties.event === 'Residence') {
+        return L.marker(latlng, {icon: residenceIcon});
+    } else {
+        return L.marker(latlng);
+    }
+}

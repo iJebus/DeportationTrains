@@ -16,22 +16,36 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     id: 'mapbox.streets'
 }).addTo(mymap);
 
+// Custom icons
+const detentionIcon = L.icon({
+    iconUrl: '/static/img/png/criminal.png',
+    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+});
+const arrestIcon = L.icon({
+    iconUrl: '/static/img/png/policeman.png',
+    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+});
+const birthIcon = L.icon({
+    iconUrl: '/static/img/png/people.png',
+    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+});
+const migrationIcon = L.icon({
+    iconUrl: '/static/img/png/transport.png',
+    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+});
+const residenceIcon = L.icon({
+    iconUrl: '/static/img/png/internet.png',
+    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
+});
+
 // Loading train passenger data
 $.getJSON('/static/data.geojson', function (data) {
-    json = data; // Setting global variable for easier debugging
-
-    populateFilters(data);
-
-    var numberOfItems = data.persons.length;
-
+    json = data; // Setting global variable for easier console debugging/referencing
+    populateFilters(data); // Add passengers and filter fields on receiving geojson
     for (var person in data.geojson) {
         L.geoJson(data.geojson[person].features, {
-            onEachFeature: onEachFeature,
-        }).addTo(mymap);
-
-        L.geoJson(data.geojson[person].features, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng);
+                return getIcon(feature, latlng); // surely we can replace the anon function directly with this?
             },
             onEachFeature: onEachFeature
         }).addTo(mymap);
