@@ -1,5 +1,5 @@
 # DeportationTrains
-Release 16.07.sprint1
+Release 16.07.sprint2
 
 Using [CalVer](http://calver.org/): YY.0M.Modifier
 Modifier refers to sprint cycle and will be either sprint1 or sprint2. (as per ~2 spring cycles per month)
