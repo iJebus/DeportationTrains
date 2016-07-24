@@ -18,6 +18,21 @@ def generate_feature(row):
     of big schema changes.
     """
 
+    def create_time(day, month, year, offset):
+        _time = [
+            str(int(year) + offset),
+            month or '01',
+            day or '01'
+        ]
+        return '-'.join(_time)
+
+    time = create_time(
+        row['gsx$startday']['$t'],
+        row['gsx$startmonth']['$t'],
+        row['gsx$startyear']['$t'],
+        100
+    )
+
     feature = {
         "type": "Feature",
         "geometry": {
@@ -29,6 +44,7 @@ def generate_feature(row):
             "status": row['gsx$status']['$t'],
             "event": row['gsx$event']['$t'],
             "startyear": row['gsx$startyear']['$t'],
+            "time": time,
             "endyear": row['gsx$endyear']['$t'],
             "startmonth": row['gsx$startmonth']['$t'],
             "endmonth": row['gsx$endmonth']['$t'],
@@ -43,10 +59,8 @@ def generate_feature(row):
             "trainidentifier": row['gsx$trainidentifier']['$t']
         },
         "id": row['gsx$uniquepersonidentifier']['$t']
-    }   
+    }
     return feature
-
-
 
 def generate_deportee_feature_collection(name, data):
     """Generate GeoJSON feature collection for given individual and data."""
@@ -71,12 +85,12 @@ def main():
         "persons": deportees,
         "geojson": {}
     }
-    
+
     for deportee in deportees:
          deportee_feature_collection = generate_deportee_feature_collection(deportee, data)
          wrapper['geojson'][deportee] = deportee_feature_collection
 
-    with open('data.geojson', 'w') as output:
+    with open('static/data.geojson', 'w') as output:
         json.dump(wrapper, output, sort_keys=True, indent=4)
 
 if __name__ == "__main__":
