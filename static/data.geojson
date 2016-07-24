@@ -27,6 +27,7 @@
                         "startyear": "1893",
                         "state": "",
                         "status": "UNKNOWN",
+                        "time": "1993-01-01",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -56,6 +57,7 @@
                         "startyear": "1893",
                         "state": "",
                         "status": "UNKNOWN",
+                        "time": "1993-01-01",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -85,6 +87,7 @@
                         "startyear": "1915",
                         "state": "New York",
                         "status": "MIGRANT",
+                        "time": "2015-11-23",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -114,6 +117,7 @@
                         "startyear": "1917",
                         "state": "Montana",
                         "status": "INMATE",
+                        "time": "2017-2-17",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -143,6 +147,7 @@
                         "startyear": "1919",
                         "state": "New York",
                         "status": "DEPORTEE",
+                        "time": "2019-6-21",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -172,6 +177,7 @@
                         "startyear": "1919",
                         "state": "",
                         "status": "DEPORTEE",
+                        "time": "2019-7-2",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -201,6 +207,7 @@
                         "startyear": "1919",
                         "state": "",
                         "status": "",
+                        "time": "2019-7-3",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -239,6 +246,7 @@
                         "startyear": "1887",
                         "state": "Canton",
                         "status": "UNKNOWN",
+                        "time": "1987-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -268,6 +276,7 @@
                         "startyear": "1908",
                         "state": "Canton",
                         "status": "MERCHANT",
+                        "time": "2008-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -297,6 +306,7 @@
                         "startyear": "1908",
                         "state": "California",
                         "status": "MERCHANT",
+                        "time": "2008-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -326,6 +336,7 @@
                         "startyear": "1908",
                         "state": "Chihuahua",
                         "status": "MERCHANT",
+                        "time": "2008-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -355,6 +366,7 @@
                         "startyear": "1908",
                         "state": "Coahuila",
                         "status": "LABORER",
+                        "time": "2008-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -384,6 +396,7 @@
                         "startyear": "1916",
                         "state": "Chihuahua",
                         "status": "LABORER",
+                        "time": "2016-01-01",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -413,6 +426,7 @@
                         "startyear": "1917",
                         "state": "New Mexico",
                         "status": "LABORER",
+                        "time": "2017-2-5",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -442,6 +456,7 @@
                         "startyear": "1918",
                         "state": "Texas",
                         "status": "THIEF",
+                        "time": "2018-8-21",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -471,6 +486,7 @@
                         "startyear": "1918",
                         "state": "Texas",
                         "status": "INMATE",
+                        "time": "2018-8-30",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -500,6 +516,7 @@
                         "startyear": "1918",
                         "state": "Texas",
                         "status": "INMATE",
+                        "time": "2018-12-6",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -529,6 +546,7 @@
                         "startyear": "1920",
                         "state": "Texas",
                         "status": "BOARDED",
+                        "time": "2020-2-1",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -558,6 +576,7 @@
                         "startyear": "1920",
                         "state": "Texas",
                         "status": "DEPORTEE",
+                        "time": "2020-2-2",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -587,6 +606,7 @@
                         "startyear": "1920",
                         "state": "Texas",
                         "status": "DEPORTEE",
+                        "time": "2020-2-2",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -616,6 +636,7 @@
                         "startyear": "1920",
                         "state": "Arizona",
                         "status": "DEPORTEE",
+                        "time": "2020-2-3",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -645,6 +666,7 @@
                         "startyear": "1920",
                         "state": "California",
                         "status": "DEPORTEE",
+                        "time": "2020-2-3",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -674,6 +696,7 @@
                         "startyear": "1920",
                         "state": "California",
                         "status": "DEPORTEE",
+                        "time": "2020-2-4",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -703,6 +726,7 @@
                         "startyear": "1920",
                         "state": "California",
                         "status": "HELD",
+                        "time": "2020-2-4",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -732,6 +756,7 @@
                         "startyear": "1920",
                         "state": "Hawaii",
                         "status": "DEPORTEE",
+                        "time": "2020-2-15",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -761,6 +786,7 @@
                         "startyear": "1920",
                         "state": "",
                         "status": "DEPORTEE",
+                        "time": "2020-2-28",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -790,6 +816,7 @@
                         "startyear": "1920",
                         "state": "",
                         "status": "DEPORTEE",
+                        "time": "2020-3-1",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -819,6 +846,7 @@
                         "startyear": "1920",
                         "state": "",
                         "status": "DEPORTEE",
+                        "time": "2020-3-6",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -848,6 +876,7 @@
                         "startyear": "1920",
                         "state": "",
                         "status": "DEPORTEE",
+                        "time": "2020-3-11",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -877,6 +906,7 @@
                         "startyear": "1920",
                         "state": "Canton",
                         "status": "",
+                        "time": "2020-3-19",
                         "trainidentifier": "Westbound May-June 1919"
                     },
                     "type": "Feature"
@@ -915,6 +945,7 @@
                         "startyear": "1888",
                         "state": "Calabria",
                         "status": "UNKNOWN",
+                        "time": "1988-4-30",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -944,6 +975,7 @@
                         "startyear": "1888",
                         "state": "",
                         "status": "UNKNOWN",
+                        "time": "1988-4-30",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -973,6 +1005,7 @@
                         "startyear": "1905",
                         "state": "",
                         "status": "MIGRANT",
+                        "time": "2005-01-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1002,6 +1035,7 @@
                         "startyear": "1905",
                         "state": "New York",
                         "status": "MIGRANT",
+                        "time": "2005-2-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1031,6 +1065,7 @@
                         "startyear": "1907",
                         "state": "California",
                         "status": "INMATE",
+                        "time": "2007-12-6",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1060,6 +1095,7 @@
                         "startyear": "1913",
                         "state": "California",
                         "status": "PAROLED",
+                        "time": "2013-10-6",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1089,6 +1125,7 @@
                         "startyear": "1913",
                         "state": "California",
                         "status": "LABORER",
+                        "time": "2013-01-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1118,6 +1155,7 @@
                         "startyear": "1915",
                         "state": "Baja California",
                         "status": "MIGRANT",
+                        "time": "2015-2-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1147,6 +1185,7 @@
                         "startyear": "1915",
                         "state": "Baja California",
                         "status": "RESIDENT",
+                        "time": "2015-2-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1176,6 +1215,7 @@
                         "startyear": "1915",
                         "state": "California",
                         "status": "MIGRANT",
+                        "time": "2015-5-30",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1205,6 +1245,7 @@
                         "startyear": "1915",
                         "state": "California",
                         "status": "INMATE",
+                        "time": "2015-8-11",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1234,6 +1275,7 @@
                         "startyear": "1915",
                         "state": "California",
                         "status": "INMATE",
+                        "time": "2015-8-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1263,6 +1305,7 @@
                         "startyear": "1919",
                         "state": "California",
                         "status": "DEPORTEE",
+                        "time": "2019-6-10",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1292,6 +1335,7 @@
                         "startyear": "1919",
                         "state": "Oregon",
                         "status": "DEPORTEE",
+                        "time": "2019-6-12",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1321,6 +1365,7 @@
                         "startyear": "1919",
                         "state": "Idaho",
                         "status": "DEPORTEE",
+                        "time": "2019-6- ",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1350,6 +1395,7 @@
                         "startyear": "1919",
                         "state": "Colorado",
                         "status": "DEPORTEE",
+                        "time": "2019-6-15",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1379,6 +1425,7 @@
                         "startyear": "1919",
                         "state": "Colorado",
                         "status": "DEPORTEE",
+                        "time": "2019-6- ",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1408,6 +1455,7 @@
                         "startyear": "1919",
                         "state": "Missouri",
                         "status": "DEPORTEE",
+                        "time": "2019-6- ",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1437,6 +1485,7 @@
                         "startyear": "1919",
                         "state": "Illinois",
                         "status": "DEPORTEE",
+                        "time": "2019-6- ",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1466,6 +1515,7 @@
                         "startyear": "1919",
                         "state": "Ohio",
                         "status": "DEPORTEE",
+                        "time": "2019-6- ",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1495,6 +1545,7 @@
                         "startyear": "1919",
                         "state": "New York",
                         "status": "DEPORTEE",
+                        "time": "2019-6-20",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1524,6 +1575,7 @@
                         "startyear": "1919",
                         "state": "New York",
                         "status": "DEPORTEE",
+                        "time": "2019-6-24",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1562,6 +1614,7 @@
                         "startyear": "1898",
                         "state": "",
                         "status": "UNKNOWN",
+                        "time": "1998-01-01",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -1591,6 +1644,7 @@
                         "startyear": "1898",
                         "state": "",
                         "status": "UNKNOWN",
+                        "time": "1998-01-01",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -1620,6 +1674,7 @@
                         "startyear": "1916",
                         "state": "New York",
                         "status": "MIGRANT",
+                        "time": "2016-7-16",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -1649,6 +1704,7 @@
                         "startyear": "1916",
                         "state": "Montana",
                         "status": "RESIDENT",
+                        "time": "2016-7-01",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -1678,6 +1734,7 @@
                         "startyear": "1917",
                         "state": "Montana",
                         "status": "INMATE",
+                        "time": "2017-2-3",
                         "trainidentifier": ""
                     },
                     "type": "Feature"
@@ -1693,8 +1750,8 @@
     "persons": [
         "Hannah Sullivan",
         "Nazareno Lotorco",
-        "Nora Sullivan",
-        "Luey Mo"
+        "Luey Mo",
+        "Nora Sullivan"
     ],
     "trains": [
         "",
