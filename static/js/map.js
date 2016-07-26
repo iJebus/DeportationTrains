@@ -16,28 +16,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     id: 'mapbox.streets'
 }).addTo(map);
 
-// Custom icons
-const detentionIcon = L.icon({
-    iconUrl: '/static/img/png/criminal.png',
-    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
-});
-const arrestIcon = L.icon({
-    iconUrl: '/static/img/png/policeman.png',
-    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
-});
-const birthIcon = L.icon({
-    iconUrl: '/static/img/png/people.png',
-    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
-});
-const migrationIcon = L.icon({
-    iconUrl: '/static/img/png/transport.png',
-    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
-});
-const residenceIcon = L.icon({
-    iconUrl: '/static/img/png/internet.png',
-    iconAnchor:   [16, 16], // point of the icon which will correspond to marker's location
-});
-
 // TIME STUFF
 var timeDimension = new L.TimeDimension();
 map.timeDimension = timeDimension;
@@ -89,7 +67,7 @@ $.getJSON('/static/data.geojson', function (data) {
     for (var person in data.geojson) {
         var personGeoJson = L.geoJson(data.geojson[person], {
             pointToLayer: function (feature, latlng) {
-                return getIcon(feature, latlng); // surely we can replace the anon function directly with this?
+                return getMarker(feature, latlng); // surely we can replace the anon function directly with this?
             },
             onEachFeature: onEachFeature
         })

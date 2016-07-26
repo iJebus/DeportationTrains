@@ -46,3 +46,11 @@ color:aliceblue;
 #passengers li {
     list-style: none;
 }
+
+// Icons
+.uncertain {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+    opacity: 0.5;
+    width: 500px;
+}

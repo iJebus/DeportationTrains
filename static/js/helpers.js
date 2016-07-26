@@ -19,18 +19,36 @@ function filterFeature(filter) {
     return result;
 }
 
-function getIcon(feature, latlng) {
+function getMarker(feature, latlng) {
+    var iconOptions = {
+        iconAnchor: [16, 16],
+    };
+
+    var markerOptions = {
+        riseOnHover: true // irrelevant at this point as using hollow icons, you can't tell what's on top
+    };
+
     if (feature.properties.event === 'Arrest') {
-        return L.marker(latlng, {icon: arrestIcon});
+        iconOptions.iconUrl = '/static/img/png/criminal.png';
     } else if (feature.properties.event === 'Birth') {
-        return L.marker(latlng, {icon: birthIcon});
+        iconOptions.iconUrl = '/static/img/png/people.png';
     } else if (feature.properties.event === 'Detention') {
-        return L.marker(latlng, {icon: detentionIcon});
+        iconOptions.iconUrl = '/static/img/png/policeman.png';
     } else if (feature.properties.event === 'Migration') {
-        return L.marker(latlng, {icon: migrationIcon});
+        iconOptions.iconUrl = '/static/img/png/transport.png';
     } else if (feature.properties.event === 'Residence') {
-        return L.marker(latlng, {icon: residenceIcon});
+        iconOptions.iconUrl = '/static/img/png/internet.png';
     } else {
-        return L.marker(latlng);
+        iconOptions.iconUrl = '/static/img/marker-icon.png'; // use as default until we have all custom icons
+        iconOptions.shadowUrl = '/static/img/marker-shadow.png';
     }
+
+    if (feature.properties.datecertainty !== 'Exact') {
+        // markerOptions.opacity = 0.5;
+        iconOptions.className = "uncertain";
+    }
+
+    markerOptions.icon = L.icon(iconOptions);
+
+    return L.marker(latlng, markerOptions);
 }
