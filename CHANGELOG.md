@@ -4,6 +4,11 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Added change log record/document
-- Added time slider for multiple persons to frontend
-- Added time property to each feature in geojson export
+#### General
+- Change log record/document (this document)
+- Requests library to requirements.txt
+#### Frontend
+- Time slider for multiple persons
+#### Backend
+- Time property to each feature in geojson export
+- Method to determine uncertainty in dates if a value is not provided in original data

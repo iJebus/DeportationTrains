@@ -14,7 +14,7 @@
                     "properties": {
                         "city": "",
                         "country": "Ireland",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -44,7 +44,7 @@
                     "properties": {
                         "city": "",
                         "country": "Ireland",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1915",
@@ -74,7 +74,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -104,7 +104,7 @@
                     "properties": {
                         "city": "Warm Springs",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -134,7 +134,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -164,7 +164,7 @@
                     "properties": {
                         "city": "Liverpool",
                         "country": "England",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -194,7 +194,7 @@
                     "properties": {
                         "city": "",
                         "country": "Ireland",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -233,7 +233,7 @@
                     "properties": {
                         "city": "",
                         "country": "China",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1908",
@@ -263,7 +263,7 @@
                     "properties": {
                         "city": "Hong Kong",
                         "country": "China",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1908",
@@ -293,7 +293,7 @@
                     "properties": {
                         "city": "San Francisco",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1908",
@@ -323,7 +323,7 @@
                     "properties": {
                         "city": "Juarez",
                         "country": "Mexico",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1908",
@@ -353,7 +353,7 @@
                     "properties": {
                         "city": "Madera",
                         "country": "Mexico",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1916",
@@ -383,7 +383,7 @@
                     "properties": {
                         "city": "Chihuahua City",
                         "country": "Mexico",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "5",
                         "endmonth": "2",
                         "endyear": "1917",
@@ -413,7 +413,7 @@
                     "properties": {
                         "city": "Columbus",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1918",
@@ -443,7 +443,7 @@
                     "properties": {
                         "city": "Leon Springs",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "30",
                         "endmonth": "8",
                         "endyear": "1918",
@@ -473,7 +473,7 @@
                     "properties": {
                         "city": "San Antonio",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "6",
                         "endmonth": "12",
                         "endyear": "1918",
@@ -503,7 +503,7 @@
                     "properties": {
                         "city": "San Antonio",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "1",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -533,7 +533,7 @@
                     "properties": {
                         "city": "San Antonio",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -563,7 +563,7 @@
                     "properties": {
                         "city": "Spofford Junction",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "2",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -593,7 +593,7 @@
                     "properties": {
                         "city": "Del Rio",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "2",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -623,7 +623,7 @@
                     "properties": {
                         "city": "Tucson",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "3",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -653,7 +653,7 @@
                     "properties": {
                         "city": "Los Angeles",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -683,7 +683,7 @@
                     "properties": {
                         "city": "San Francisco",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "4",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -713,7 +713,7 @@
                     "properties": {
                         "city": "Angel Island",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "7",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -743,7 +743,7 @@
                     "properties": {
                         "city": "Honolulu",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "15",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -773,7 +773,7 @@
                     "properties": {
                         "city": "Yokohama",
                         "country": "Japan",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "29",
                         "endmonth": "2",
                         "endyear": "1920",
@@ -803,7 +803,7 @@
                     "properties": {
                         "city": "Kobe",
                         "country": "Japan",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "2",
                         "endmonth": "3",
                         "endyear": "1920",
@@ -833,7 +833,7 @@
                     "properties": {
                         "city": "Shanghai",
                         "country": "China",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "7",
                         "endmonth": "3",
                         "endyear": "1920",
@@ -863,7 +863,7 @@
                     "properties": {
                         "city": "Manilla",
                         "country": "Philippines",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "15",
                         "endmonth": "3",
                         "endyear": "1920",
@@ -893,7 +893,7 @@
                     "properties": {
                         "city": "Hong Kong",
                         "country": "China",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -932,7 +932,7 @@
                     "properties": {
                         "city": "Monteclione",
                         "country": "Italy",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "30",
                         "endmonth": "4",
                         "endyear": "1888",
@@ -962,7 +962,7 @@
                     "properties": {
                         "city": "",
                         "country": "Italy",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1905",
@@ -992,7 +992,7 @@
                     "properties": {
                         "city": "Naples",
                         "country": "Italy",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1905",
@@ -1022,7 +1022,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "2",
                         "endyear": "1905",
@@ -1052,7 +1052,7 @@
                     "properties": {
                         "city": "San Quentin",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1082,7 +1082,7 @@
                     "properties": {
                         "city": "San Francisco",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1112,7 +1112,7 @@
                     "properties": {
                         "city": "San Francisco",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1915",
@@ -1142,7 +1142,7 @@
                     "properties": {
                         "city": "Tijuana",
                         "country": "Mexico",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1172,7 +1172,7 @@
                     "properties": {
                         "city": "Tijuana",
                         "country": "Mexico",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "5",
                         "endyear": "1915",
@@ -1202,7 +1202,7 @@
                     "properties": {
                         "city": "Tijuana",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "30",
                         "endmonth": "5",
                         "endyear": "1915",
@@ -1232,7 +1232,7 @@
                     "properties": {
                         "city": "Los Angeles",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "11",
                         "endmonth": "8",
                         "endyear": "1915",
@@ -1262,7 +1262,7 @@
                     "properties": {
                         "city": "San Quentin",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1292,7 +1292,7 @@
                     "properties": {
                         "city": "Oakland",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1322,7 +1322,7 @@
                     "properties": {
                         "city": "Portland",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1352,7 +1352,7 @@
                     "properties": {
                         "city": "Pocatello",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1382,7 +1382,7 @@
                     "properties": {
                         "city": "Denver",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1412,7 +1412,7 @@
                     "properties": {
                         "city": "Pueblo",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1442,7 +1442,7 @@
                     "properties": {
                         "city": "Kansas City",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1472,7 +1472,7 @@
                     "properties": {
                         "city": "Chicago",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1502,7 +1502,7 @@
                     "properties": {
                         "city": "Cleveland",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1532,7 +1532,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1562,7 +1562,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "24",
                         "endmonth": "6",
                         "endyear": "1919",
@@ -1601,7 +1601,7 @@
                     "properties": {
                         "city": "",
                         "country": "Ireland",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1631,7 +1631,7 @@
                     "properties": {
                         "city": "",
                         "country": "Ireland",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1916",
@@ -1661,7 +1661,7 @@
                     "properties": {
                         "city": "New York",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1691,7 +1691,7 @@
                     "properties": {
                         "city": "Silver Bow",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Estimated",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "1917",
@@ -1721,7 +1721,7 @@
                     "properties": {
                         "city": "Warm Springs",
                         "country": "USA",
-                        "datecertainty": "",
+                        "datecertainty": "Exact",
                         "endday": "",
                         "endmonth": "",
                         "endyear": "",
@@ -1748,14 +1748,14 @@
         }
     },
     "persons": [
-        "Hannah Sullivan",
-        "Nazareno Lotorco",
         "Luey Mo",
-        "Nora Sullivan"
+        "Nora Sullivan",
+        "Hannah Sullivan",
+        "Nazareno Lotorco"
     ],
     "trains": [
         "",
-        "Westbound May-June 1919",
-        "Eastbound June 1919"
+        "Eastbound June 1919",
+        "Westbound May-June 1919"
     ]
 }

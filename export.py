@@ -33,6 +33,18 @@ def generate_feature(row):
         100
     )
 
+    def create_date_certainty(day, month, year):
+        if day and month and year:
+            return 'Exact'
+        else:
+            return 'Estimated'
+
+    datecertainty = row['gsx$datecertainty']['$t'] or create_date_certainty(
+        row['gsx$startday']['$t'],
+        row['gsx$startmonth']['$t'],
+        row['gsx$startyear']['$t']
+    )
+
     feature = {
         "type": "Feature",
         "geometry": {
@@ -50,7 +62,7 @@ def generate_feature(row):
             "endmonth": row['gsx$endmonth']['$t'],
             "startday": row['gsx$startday']['$t'],
             "endday": row['gsx$endday']['$t'],
-            "datecertainty": row['gsx$datecertainty']['$t'],
+            "datecertainty": datecertainty,
             "place": row['gsx$place']['$t'],
             "city": row['gsx$city']['$t'],
             "state": row['gsx$state']['$t'],
