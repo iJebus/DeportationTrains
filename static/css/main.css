@@ -36,7 +36,6 @@ color:aliceblue;
     padding-top: 20px;
 }
 
-// Filters
 #filters .btn {
   margin: 20px 0;
 }
@@ -47,10 +46,8 @@ color:aliceblue;
     list-style: none;
 }
 
-// Icons
-.uncertain {
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-    opacity: 0.5;
-    width: 500px;
+.icon--uncertain {
+    -webkit-filter: blur(1.25px);
+    filter: blur(1.25px);
+    opacity: 0.75;
 }

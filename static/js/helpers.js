@@ -44,8 +44,7 @@ function getMarker(feature, latlng) {
     }
 
     if (feature.properties.datecertainty !== 'Exact') {
-        // markerOptions.opacity = 0.5;
-        iconOptions.className = "uncertain";
+        iconOptions.className = "icon--uncertain";
     }
 
     markerOptions.icon = L.icon(iconOptions);
