@@ -19,19 +19,24 @@ def generate_feature(row):
     """
 
     def create_time(day, month, year, offset):
-        _time = [
-            str(int(year) + offset),
-            month or '01',
-            day or '01'
-        ]
-        return '-'.join(_time)
+        """
+        Returns valid time field string for later use in creating the leaflet
+        time dimension. Currently offsetting the year value by offset value
+        to get around < 1970 bug in leaflet time dimension. For empty values,
+        setting value of the first of whatever period it is.
 
-    time = create_time(
-        row['gsx$startday']['$t'],
-        row['gsx$startmonth']['$t'],
-        row['gsx$startyear']['$t'],
-        100
-    )
+        Input:
+            Day/month/year strings
+            Offset int
+        Output: Valid time dimension string
+        """
+
+        time = [
+            str(int(year) + offset),
+            month.strip() or '01',
+            day.strip() or '01'
+        ]
+        return '-'.join(time)
 
     def create_date_certainty(day, month, year):
         if day and month and year:
@@ -43,6 +48,13 @@ def generate_feature(row):
         row['gsx$startday']['$t'],
         row['gsx$startmonth']['$t'],
         row['gsx$startyear']['$t']
+    )
+
+    time = create_time(
+        row['gsx$startday']['$t'],
+        row['gsx$startmonth']['$t'],
+        row['gsx$startyear']['$t'],
+        100
     )
 
     feature = {
