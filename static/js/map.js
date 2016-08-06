@@ -43,7 +43,7 @@ var icon = L.icon({
 });
 
 $.getJSON('/static/data.geojson', function (data) {
-    mapData = data; // Make available globally for other functions to use later
+    // mapData = data; // Make available globally for other functions to use later
     populateFilters(data); // Add passengers and filter fields
 
     // Attaches data to each point on click/popup, we may/may not actually want this on the main map; maybe just the person and a link to their page/map. Option for a modal popup?
@@ -79,7 +79,6 @@ $.getJSON('/static/data.geojson', function (data) {
             addlastPoint: false,
             // duration: 'P1Y' // Hide points after this much time has expired since event i.e. one year later, remove this marker
             // waitForReady: true,
-
         });
         personTimeLayer.addTo(map);
     }

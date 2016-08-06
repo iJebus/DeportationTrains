@@ -1365,7 +1365,7 @@
                         "startyear": "1919",
                         "state": "Idaho",
                         "status": "DEPORTEE",
-                        "time": "2019-6- ",
+                        "time": "2019-6-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1425,7 +1425,7 @@
                         "startyear": "1919",
                         "state": "Colorado",
                         "status": "DEPORTEE",
-                        "time": "2019-6- ",
+                        "time": "2019-6-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1455,7 +1455,7 @@
                         "startyear": "1919",
                         "state": "Missouri",
                         "status": "DEPORTEE",
-                        "time": "2019-6- ",
+                        "time": "2019-6-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1485,7 +1485,7 @@
                         "startyear": "1919",
                         "state": "Illinois",
                         "status": "DEPORTEE",
-                        "time": "2019-6- ",
+                        "time": "2019-6-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1515,7 +1515,7 @@
                         "startyear": "1919",
                         "state": "Ohio",
                         "status": "DEPORTEE",
-                        "time": "2019-6- ",
+                        "time": "2019-6-01",
                         "trainidentifier": "Eastbound June 1919"
                     },
                     "type": "Feature"
@@ -1748,10 +1748,10 @@
         }
     },
     "persons": [
+        "Nazareno Lotorco",
         "Luey Mo",
-        "Nora Sullivan",
         "Hannah Sullivan",
-        "Nazareno Lotorco"
+        "Nora Sullivan"
     ],
     "trains": [
         "",

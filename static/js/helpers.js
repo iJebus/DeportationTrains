@@ -1,3 +1,5 @@
+L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa'; // Set marker default to use font awesome
+
 function populateFilters(data) {
     // Populates filters on initial page load, needs work
     for (var i in data.persons) {
@@ -9,45 +11,29 @@ function populateFilters(data) {
     }
 }
 
-function filterFeature(filter) {
-    // Early start on with clearing layers based on content
-    var result = []
-    mymap.eachLayer(function (layer) {
-        if (!(layer.options.id)) result.push(layer);
-        // mymap.removeLayer(layer);
-    })
-    return result;
+const icons = {
+    'Residence': {
+        'icon': 'home',
+        'markerColor': 'green'
+    },
+    'Generic': {
+        'icon': 'map-marker',
+        'markerColor': 'blue'
+    }
 }
 
 function getMarker(feature, latlng) {
-    var iconOptions = {
-        iconAnchor: [16, 16],
-    };
-
-    var markerOptions = {
-        riseOnHover: true // irrelevant at this point as using hollow icons, you can't tell what's on top
-    };
-
-    if (feature.properties.event === 'Arrest') {
-        iconOptions.iconUrl = '/static/img/png/criminal.png';
-    } else if (feature.properties.event === 'Birth') {
-        iconOptions.iconUrl = '/static/img/png/people.png';
-    } else if (feature.properties.event === 'Detention') {
-        iconOptions.iconUrl = '/static/img/png/policeman.png';
-    } else if (feature.properties.event === 'Migration') {
-        iconOptions.iconUrl = '/static/img/png/transport.png';
-    } else if (feature.properties.event === 'Residence') {
-        iconOptions.iconUrl = '/static/img/png/internet.png';
+    if (icons.hasOwnProperty(feature.properties.event)) {
+        var iconOptions = Object.create(icons[feature.properties.event]);
     } else {
-        iconOptions.iconUrl = '/static/img/marker-icon.png'; // use as default until we have all custom icons
-        iconOptions.shadowUrl = '/static/img/marker-shadow.png';
+        var iconOptions = Object.create(icons['Generic']);
     }
 
-    if (feature.properties.datecertainty !== 'Exact') {
-        iconOptions.className = "icon--uncertain";
+    if (feature.properties.datecertainty !== "Exact") {
+        iconOptions.extraClasses = "icon--uncertain";
     }
 
-    markerOptions.icon = L.icon(iconOptions);
-
-    return L.marker(latlng, markerOptions);
+    var icon = L.AwesomeMarkers.icon(iconOptions);
+    var marker = L.marker(latlng, {icon: icon});
+    return marker
 }
