@@ -12,15 +12,73 @@ function populateFilters(data) {
 }
 
 const icons = {
+    'Detention 1': {
+        'icon': 'chain',
+        'markerColor': 'red'
+    },
+    'Detention 2': {
+        'icon': 'chain',
+        'markerColor': 'red'
+    },
+    'Parole': {
+        'icon': 'chain-broken',
+        'markerColor': 'red'
+    },
+    'Arrest': {
+        'icon': 'university',
+        'markerColor': 'red'
+    },
+    'Birth': {
+        'icon': 'child',
+        'markerColor': 'blue'
+    },
+    'Deportation Main Line': {
+        'icon': 'train',
+        'markerColor': 'red'
+    },
+    'Deportation International Exiting': {
+        'icon': 'sign-out',
+        'markerColor': 'red'
+    },
+    'Deportation International Transfer': {
+        'icon': 'ship',
+        'markerColor': 'red'
+    },
+    'Migration': {
+        'icon': 'ship',
+        'markerColor': 'blue'
+    },
+    'Labor': {
+        'icon': 'usd',
+        'markerColor': 'blue'
+    },
+    'Final Destination': {
+        'icon': 'circle',
+        'markerColor': 'red'
+    },
+    'Detention': {
+        'icon': 'exclamation-triangle',
+        'markerColor': 'red'
+    },
     'Residence': {
         'icon': 'home',
         'markerColor': 'green'
+    },
+    'Living in China': {
+        'icon': 'home',
+        'markerColor': 'green'
+    },
+    'Arrival in USA': {
+        'icon': 'sign-in',
+        'markerColor': 'blue'
     },
     'Generic': {
         'icon': 'map-marker',
         'markerColor': 'blue'
     }
 }
+
+
 
 function getMarker(feature, latlng) {
     if (icons.hasOwnProperty(feature.properties.event)) {
