@@ -45,6 +45,10 @@ var icon = L.icon({
 $.getJSON('/static/data.geojson', function (data) {
     // mapData = data; // Make available globally for other functions to use later
     populateFilters(data); // Add passengers and filter fields
+    console.log(data.geojson);
+    var filters = {};
+    filters.selectedTrain = "Westbound May-June 1919";
+    console.log(filters);
 
     // Attaches data to each point on click/popup, we may/may not actually want this on the main map; maybe just the person and a link to their page/map. Option for a modal popup?
     function onEachFeature(feature, layer) {
@@ -68,6 +72,9 @@ $.getJSON('/static/data.geojson', function (data) {
         var personGeoJson = L.geoJson(data.geojson[person], {
             pointToLayer: function (feature, latlng) {
                 return getMarker(feature, latlng); // surely we can replace the anon function directly with this?
+            },
+            filter: function(feature, layer) {
+                return feature['properties']['trainidentifier'] === filters.selectedTrain;
             },
             onEachFeature: onEachFeature
         })
