@@ -6,21 +6,45 @@ import requests
 MAP_ENGINE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
 PEOPLE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/2/public/full?alt=json'
 
-def generate_deportee(deportee_data):
-    properties = {}
-    for value in deportee_data:
-        if 'gsx$' in value:
-            value_name = value[4:]
-            properties[value_name] = deportee_data[value]['$t']
+
+def create_time(day, month, year, offset):
+    """
+    Returns valid time field string for later use in creating the leaflet
+    time dimension. Currently offsetting the year value by offset value
+    to get around < 1970 bug in leaflet time dimension. For empty values,
+    setting value of the first of whatever period it is.
+
+    Input:
+        Day/month/year strings
+        Offset int
+    Output: Valid time dimension string
+    """
+
+    time = [
+        str(int(year) + offset),
+        month.strip() or '01',
+        day.strip() or '01'
+    ]
+    return '-'.join(time)
+
+def create_date_certainty(day, month, year):
+    if day and month and year:
+        return 'Exact'
+    else:
+        return 'Estimated'
+
+def generate_deportee_feature_collection(deportee_map_data, deportee_properties_data):
+    """Return a GeoJSON feature collection for a given individual."""
     deportee = {
-        properties['name']: {
-            'features': [],
-            'properties': properties,
-            'type': 'FeatureCollection'
-        }
+        'features': generate_deportee_features(deportee_map_data),
+        'properties': generate_deportee_properties(deportee_properties_data),
+        'type': 'FeatureCollection'
     }
     return deportee
 
+def generate_deportee_features(deportee_map_data):
+    features = [generate_feature(row) for row in deportee_map_data]
+    return features
 
 def generate_feature(row):
     """
@@ -34,32 +58,6 @@ def generate_feature(row):
     but this doesn't seem necessary given the low number of keys and low likelyhood
     of big schema changes.
     """
-
-    def create_time(day, month, year, offset):
-        """
-        Returns valid time field string for later use in creating the leaflet
-        time dimension. Currently offsetting the year value by offset value
-        to get around < 1970 bug in leaflet time dimension. For empty values,
-        setting value of the first of whatever period it is.
-
-        Input:
-            Day/month/year strings
-            Offset int
-        Output: Valid time dimension string
-        """
-
-        time = [
-            str(int(year) + offset),
-            month.strip() or '01',
-            day.strip() or '01'
-        ]
-        return '-'.join(time)
-
-    def create_date_certainty(day, month, year):
-        if day and month and year:
-            return 'Exact'
-        else:
-            return 'Estimated'
 
     datecertainty = row['gsx$datecertainty']['$t'] or create_date_certainty(
         row['gsx$startday']['$t'],
@@ -103,36 +101,45 @@ def generate_feature(row):
     }
     return feature
 
-def generate_deportee_feature_collection(name, data):
-    """Generate GeoJSON feature collection for given individual and data."""
-    feature_collection = {
-        "type": "FeatureCollection",
-        "features": [],
-        "properties": {}
-    }
-    feature_collection['features'] = [generate_feature(row) for row in data if row['gsx$name']['$t'] == name]
-    feature_collection['properties']['start'] = feature_collection['features'][0]['properties']['country']
-    feature_collection['properties']['end'] = feature_collection['features'][-1]['properties']['country']
-    return feature_collection
+def generate_deportee_properties(deportee_properties_data):
+    properties = {}
+    for value in deportee_properties_data[0]:
+        if 'gsx$' in value:
+            value_name = value[4:]
+            properties[value_name] = deportee_properties_data[0][value]['$t']
+    return properties
+
+def export_output(output):
+    with open('static/data.geojson', 'w') as export_file:
+        json.dump(output, export_file, sort_keys=True, indent=4)
 
 def main():
     """Main execution body."""
-    r = requests.get(MAP_ENGINE_URL)
-    data = r.json()['feed']['entry']
-    deportees = list(set([x['gsx$name']['$t'] for x in data]))
-    trains = list(set([x['gsx$trainidentifier']['$t'] for x in data]))
-    wrapper = {
-        "trains": trains,
-        "persons": deportees,
+    map_data = requests.get(MAP_ENGINE_URL).json()['feed']['entry']
+    properties_data = requests.get(PEOPLE_URL).json()['feed']['entry']
+
+    deportees = list(set([x['gsx$name']['$t'] for x in properties_data]))
+    trains = list(set([x['gsx$trainid']['$t'] for x in properties_data]))
+
+    output = {
+        "filters": {
+            "trains": trains,
+            "deportees": deportees
+        },
         "geojson": {}
     }
 
     for deportee in deportees:
-         deportee_feature_collection = generate_deportee_feature_collection(deportee, data)
-         wrapper['geojson'][deportee] = deportee_feature_collection
+        deportee_map_data = [row for row in map_data if row['gsx$name']['$t'] == deportee]
+        deportee_properties_data = [row for row in properties_data if row['gsx$name']['$t'] == deportee]
 
-    with open('static/data.geojson', 'w') as output:
-        json.dump(wrapper, output, sort_keys=True, indent=4)
+        if deportee_map_data:  # What to do if name but no data?
+            output['geojson'][deportee] = generate_deportee_feature_collection(
+                deportee_map_data,
+                deportee_properties_data
+            )
+
+    export_output(output)
 
 if __name__ == "__main__":
     main()

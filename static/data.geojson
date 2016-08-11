@@ -1,4 +1,123 @@
 {
+    "filters": {
+        "deportees": [
+            "Jose Perez",
+            "Ng Ah Get",
+            "Reyes Garcia",
+            "Thomas Rued",
+            "Katina Ferleles",
+            "Chin Chu",
+            "Adolphe Creste",
+            "Chang Yill Lee",
+            "Juan Torres",
+            "Lui Sing",
+            "Amor Singh",
+            "Peter Kelley",
+            "Stefano Grosso",
+            "Eliza Jane Vincent",
+            "Nan Chien",
+            "Attar Singh",
+            "Loy Yick",
+            "Quintillio Rafanelli",
+            "Sunder Singh",
+            "John Marshall",
+            "Salvador Portillo",
+            "Robert Ruiz",
+            "Surain Singh",
+            "Thomas Percy Lovelock",
+            "Yee Kin",
+            "Sohen Singh",
+            "Pete Samipolous",
+            "Yee Toy",
+            "Yee Kut",
+            "Angel Ramirez",
+            "Clemence Genty",
+            "Nazarreno Lotorco",
+            "Salig Rum",
+            "O.M. Jensen",
+            "Ying Sing",
+            "Gumicindo Veyejo",
+            "Carmelino Prete",
+            "Carl Laparo",
+            "Joe Kennedy",
+            "Georgios A. Adrianopulos",
+            "Jose Dwartez",
+            "Sooba Singh",
+            "Jake Hirsch",
+            "Goon Quong Yuen",
+            "Hirakawa Kizo",
+            "Channan Singh",
+            "Georgios Gavros",
+            "Fortunato Forti",
+            "Lee Hin",
+            "George Jiminez",
+            "Norman Davies",
+            "Stipan Brajcic",
+            "Foo Chin",
+            "Santa Singh",
+            "Ng Yng Bow",
+            "Jung Kwok Hin",
+            "Lum Got",
+            "Aristidis Kutuzos",
+            "Argeres Ferleles",
+            "Germaine Monet",
+            "Chan Sung",
+            "Surup Singh",
+            "Tarashima Tokizo",
+            "Carlo Mirani",
+            "Hannah Sullivan",
+            "Domingo Martinez",
+            "Jose Walso",
+            "Jose Veyejo",
+            "Nora Sullivan",
+            "Guadalupa Bela",
+            "Fook Wah",
+            "Demetrios Stathoulopoulos",
+            "Tow Lung",
+            "Enrique Rocha",
+            "Frank O.H. Abbott",
+            "Pedro Guilluni",
+            "Yndalecio Huerto",
+            "Kondo Johei",
+            "Christ Kirkikopolos",
+            "Luey Mo",
+            "Frank Martinez",
+            "Jung Lee",
+            "Ezio Benedetti",
+            "Dong Tsai",
+            "Li Lee?",
+            "Mal Singh",
+            "Demetrius Doumas",
+            "Georgios Bizinas",
+            "Jorgine Jorgensen",
+            "Conception Ranjel",
+            "Lall Singh",
+            "Ah Yung",
+            "Chan Pong",
+            "Genero Huerto"
+        ],
+        "trains": [
+            "",
+            "Westbound November-December 1914",
+            "Eastbound June 1919",
+            "Eastbound November - December 1914",
+            "South and Eastbound March 1915",
+            "Eastbound via Northern Route January 1915",
+            "1919",
+            "Westbound May 1919",
+            "South and Eastbound November - December 1914",
+            "Not applicable - Returned to Canada",
+            "Eastbound January 1915",
+            "Eastbound June 1914 ",
+            "1914-1915",
+            "Westbound January 1915",
+            "?",
+            "Westbound December 1914 - January 1915",
+            "Westbound May-June 1919",
+            "Eastbound November-December 1914",
+            "Westbound October 1914"
+        ]
+    },
     "geojson": {
         "Hannah Sullivan": {
             "features": [
@@ -214,8 +333,28 @@
                 }
             ],
             "properties": {
-                "end": "Ireland",
-                "start": "Ireland"
+                "aliasesothernames": "",
+                "birthdate": "",
+                "birthmonth": "",
+                "birthyear": "1893",
+                "casefilenumber": "54257/8",
+                "citizenship": "Ireland",
+                "documentrefernce": "",
+                "ethnicity": "Irish",
+                "justificationforremovalprimary": "LPC, insanity",
+                "justificationforremovalsecondary": "",
+                "justificationforremovaltertiary": "",
+                "literate": "Y",
+                "marriagestatus": "Single",
+                "name": "Hannah Sullivan",
+                "notesdocument": "",
+                "occupation1": "Dressmaker",
+                "occupation2": "",
+                "occupation3": "",
+                "sex": "F",
+                "trainid": "",
+                "travelingwithchildrennumber": "",
+                "uniqueid": "6"
             },
             "type": "FeatureCollection"
         },
@@ -913,677 +1052,28 @@
                 }
             ],
             "properties": {
-                "end": "China",
-                "start": "China"
-            },
-            "type": "FeatureCollection"
-        },
-        "Nazareno Lotorco": {
-            "features": [
-                {
-                    "geometry": {
-                        "coordinates": [
-                            12.674297,
-                            42.6384261
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Monteclione",
-                        "country": "Italy",
-                        "datecertainty": "Exact",
-                        "endday": "30",
-                        "endmonth": "4",
-                        "endyear": "1888",
-                        "event": "Birth",
-                        "name": "Nazareno Lotorco",
-                        "notes": "This lat/lon is for Italy in general, Monteclione is not geocoded in sandbox or Google Maps.",
-                        "place": "Birthplace",
-                        "startday": "30",
-                        "startmonth": "4",
-                        "startyear": "1888",
-                        "state": "Calabria",
-                        "status": "UNKNOWN",
-                        "time": "1988-4-30",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            12.674297,
-                            42.6384261
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "",
-                        "country": "Italy",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "1905",
-                        "event": "Living in Italy",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "30",
-                        "startmonth": "4",
-                        "startyear": "1888",
-                        "state": "",
-                        "status": "UNKNOWN",
-                        "time": "1988-4-30",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            14.2422998,
-                            40.8441164
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Naples",
-                        "country": "Italy",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "1905",
-                        "event": "Departure from Italy",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "SS Milano",
-                        "startday": "",
-                        "startmonth": "",
-                        "startyear": "1905",
-                        "state": "",
-                        "status": "MIGRANT",
-                        "time": "2005-01-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -73.9865812,
-                            40.7305991
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "New York",
-                        "country": "USA",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "2",
-                        "endyear": "1905",
-                        "event": "Arrival in USA",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "SS Milano",
-                        "startday": "",
-                        "startmonth": "2",
-                        "startyear": "1905",
-                        "state": "New York",
-                        "status": "MIGRANT",
-                        "time": "2005-2-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.4849739,
-                            37.9413133
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "San Quentin",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Detention 1",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "State Prison",
-                        "startday": "6",
-                        "startmonth": "12",
-                        "startyear": "1907",
-                        "state": "California",
-                        "status": "INMATE",
-                        "time": "2007-12-6",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.4192704,
-                            37.7792768
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "San Francisco",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Parole",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "6",
-                        "startmonth": "10",
-                        "startyear": "1913",
-                        "state": "California",
-                        "status": "PAROLED",
-                        "time": "2013-10-6",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.4192704,
-                            37.7792768
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "San Francisco",
-                        "country": "USA",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "1915",
-                        "event": "Labor",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "",
-                        "startmonth": "",
-                        "startyear": "1913",
-                        "state": "California",
-                        "status": "LABORER",
-                        "time": "2013-01-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -117.0393788,
-                            32.5344409
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Tijuana",
-                        "country": "Mexico",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Migration",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "",
-                        "startmonth": "2",
-                        "startyear": "1915",
-                        "state": "Baja California",
-                        "status": "MIGRANT",
-                        "time": "2015-2-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -117.0393788,
-                            32.5344409
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Tijuana",
-                        "country": "Mexico",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "5",
-                        "endyear": "1915",
-                        "event": "Residence",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "",
-                        "startmonth": "2",
-                        "startyear": "1915",
-                        "state": "Baja California",
-                        "status": "RESIDENT",
-                        "time": "2015-2-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -117.1228071,
-                            32.5556118
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Tijuana",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "30",
-                        "endmonth": "5",
-                        "endyear": "1915",
-                        "event": "Migration",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "30",
-                        "startmonth": "5",
-                        "startyear": "1915",
-                        "state": "California",
-                        "status": "MIGRANT",
-                        "time": "2015-5-30",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -118.2427266,
-                            34.053717
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Los Angeles",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "11",
-                        "endmonth": "8",
-                        "endyear": "1915",
-                        "event": "Arrest",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "",
-                        "startday": "11",
-                        "startmonth": "8",
-                        "startyear": "1915",
-                        "state": "California",
-                        "status": "INMATE",
-                        "time": "2015-8-11",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.4849739,
-                            37.9413133
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "San Quentin",
-                        "country": "USA",
-                        "datecertainty": "Estimated",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Detention 2",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "State Prison",
-                        "startday": "",
-                        "startmonth": "8",
-                        "startyear": "1915",
-                        "state": "California",
-                        "status": "INMATE",
-                        "time": "2015-8-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.2968,
-                            37.8156
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Oakland",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": "10",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "California",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-10",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -122.6768,
-                            45.529
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Portland",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": "12",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Oregon",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-12",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -112.2651,
-                            42.514
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Pocatello",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": " ",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Idaho",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -104.9997,
-                            39.7528
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Denver",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": "15",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Colorado",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-15",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -104.6173,
-                            38.263
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Pueblo",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": " ",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Colorado",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -94.5855,
-                            39.0848
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Kansas City",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": " ",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Missouri",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -87.621944,
-                            41.868056
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Chicago",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": " ",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Illinois",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -81.69939,
-                            41.50138
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "Cleveland",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": " ",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "Ohio",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-01",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -73.993575,
-                            40.750811
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "New York",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "",
-                        "endmonth": "",
-                        "endyear": "",
-                        "event": "Deportation Main Line",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "Train",
-                        "startday": "20",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "New York",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-20",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                },
-                {
-                    "geometry": {
-                        "coordinates": [
-                            -74.041817,
-                            40.699589
-                        ],
-                        "type": "Point"
-                    },
-                    "id": "5",
-                    "properties": {
-                        "city": "New York",
-                        "country": "USA",
-                        "datecertainty": "Exact",
-                        "endday": "24",
-                        "endmonth": "6",
-                        "endyear": "1919",
-                        "event": "Deportation International Exiting",
-                        "name": "Nazareno Lotorco",
-                        "notes": "",
-                        "place": "SS Dante Alighieri",
-                        "startday": "24",
-                        "startmonth": "6",
-                        "startyear": "1919",
-                        "state": "New York",
-                        "status": "DEPORTEE",
-                        "time": "2019-6-24",
-                        "trainidentifier": "Eastbound June 1919"
-                    },
-                    "type": "Feature"
-                }
-            ],
-            "properties": {
-                "end": "USA",
-                "start": "Italy"
+                "aliasesothernames": "",
+                "birthdate": "",
+                "birthmonth": "",
+                "birthyear": "1887",
+                "casefilenumber": "54646/170",
+                "citizenship": "China",
+                "documentrefernce": "Luey Po/ Luey Mo - 55",
+                "ethnicity": "Chinese",
+                "justificationforremovalprimary": "LPC",
+                "justificationforremovalsecondary": "",
+                "justificationforremovaltertiary": "",
+                "literate": "",
+                "marriagestatus": "Married, wife deceased",
+                "name": "Luey Mo",
+                "notesdocument": "\"Refer to Luey Mo.doc dfor more detail\"",
+                "occupation1": "Merchant",
+                "occupation2": "Laborer",
+                "occupation3": "",
+                "sex": "M",
+                "trainid": "Westbound May-June 1919",
+                "travelingwithchildrennumber": "N",
+                "uniqueid": "3"
             },
             "type": "FeatureCollection"
         },
@@ -1741,21 +1231,30 @@
                 }
             ],
             "properties": {
-                "end": "USA",
-                "start": "Ireland"
+                "aliasesothernames": "",
+                "birthdate": "",
+                "birthmonth": "",
+                "birthyear": "1898",
+                "casefilenumber": "54257/8",
+                "citizenship": "Ireland",
+                "documentrefernce": "",
+                "ethnicity": "Irish",
+                "justificationforremovalprimary": "LPC, insanity",
+                "justificationforremovalsecondary": "",
+                "justificationforremovaltertiary": "",
+                "literate": "Y",
+                "marriagestatus": "Single",
+                "name": "Nora Sullivan",
+                "notesdocument": "",
+                "occupation1": "Servant",
+                "occupation2": "",
+                "occupation3": "",
+                "sex": "F",
+                "trainid": "",
+                "travelingwithchildrennumber": "",
+                "uniqueid": "7"
             },
             "type": "FeatureCollection"
         }
-    },
-    "persons": [
-        "Nazareno Lotorco",
-        "Luey Mo",
-        "Hannah Sullivan",
-        "Nora Sullivan"
-    ],
-    "trains": [
-        "",
-        "Eastbound June 1919",
-        "Westbound May-June 1919"
-    ]
+    }
 }
