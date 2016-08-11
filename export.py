@@ -120,11 +120,14 @@ def main():
 
     deportees = list(set([x['gsx$name']['$t'] for x in properties_data]))
     trains = list(set([x['gsx$trainid']['$t'] for x in properties_data]))
+    ethnicities = list(set([x['gsx$ethnicity']['$t'] for x in properties_data]))
+
 
     output = {
         "filters": {
             "trains": trains,
-            "deportees": deportees
+            "deportees": deportees,
+            'ethnicities': ethnicities
         },
         "geojson": {}
     }
