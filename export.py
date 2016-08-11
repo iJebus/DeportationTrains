@@ -3,7 +3,24 @@ import json
 import requests
 
 
-gsheets = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
+MAP_ENGINE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
+PEOPLE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/2/public/full?alt=json'
+
+def generate_deportee(deportee_data):
+    properties = {}
+    for value in deportee_data:
+        if 'gsx$' in value:
+            value_name = value[4:]
+            properties[value_name] = deportee_data[value]['$t']
+    deportee = {
+        properties['name']: {
+            'features': [],
+            'properties': properties,
+            'type': 'FeatureCollection'
+        }
+    }
+    return deportee
+
 
 def generate_feature(row):
     """
@@ -100,7 +117,7 @@ def generate_deportee_feature_collection(name, data):
 
 def main():
     """Main execution body."""
-    r = requests.get(gsheets)
+    r = requests.get(MAP_ENGINE_URL)
     data = r.json()['feed']['entry']
     deportees = list(set([x['gsx$name']['$t'] for x in data]))
     trains = list(set([x['gsx$trainidentifier']['$t'] for x in data]))
