@@ -10,6 +10,9 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 - Reimplementation/breaking changes to script extracting data from google sheets
   - Great deal more properties available on each user
   - Growing number of pregenerated unique sets e.g. Names, trains, nationalities
+  - Start implementing type annotations on methods as per PEP484
+  - Fix style errors according to flake8 test.
+  - Try to improve method naming. This is surprisingly hard :<
 
 ## [16.07.sprint2]
 ### Added

@@ -3,35 +3,46 @@ import json
 import requests
 
 
-MAP_ENGINE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
-PEOPLE_URL = 'https://spreadsheets.google.com/feeds/list/1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/2/public/full?alt=json'
+MAP_ENGINE_URL = (
+    'https://spreadsheets.google.com/feeds/list/'
+    '1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
+)
+PEOPLE_URL = (
+    'https://spreadsheets.google.com/feeds/list/'
+    '1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/2/public/full?alt=json'
+)
 
 
-def create_time(day, month, year, offset):
+def offset_date(day: str, month: str, year: str, offset: int) -> str:
+    """Constructs a valid ISO 8601 date string from day, month and year
+    values. If a provided day or month value is empty space (.e.g ' ') or
+    falsy (e.g. ''), defaults to the middle value for that given period. The
+    year value is offset to work around pre-1970 date issues in
+    Leaflet.TimeDimension.
+
+    Args:
+        day: Day of the month (DD, e.g., 03).
+        month: Month of the year (MM, e.g., 11).
+        year: Any year (YYYY, e.g., 1901).
+        offset: A postive number of years to offset the year by (e.g., 52).
+    Returns:
+        Valid date string as per ISO 8601 (YYYY-MM-DD, e.g., 1901-11-03).
     """
-    Returns valid time field string for later use in creating the leaflet
-    time dimension. Currently offsetting the year value by offset value
-    to get around < 1970 bug in leaflet time dimension. For empty values,
-    setting value of the first of whatever period it is.
-
-    Input:
-        Day/month/year strings
-        Offset int
-    Output: Valid time dimension string
-    """
-
     time = [
         str(int(year) + offset),
-        month.strip() or '01',
-        day.strip() or '01'
+        month.strip() or '06',
+        day.strip() or '15'
     ]
     return '-'.join(time)
 
-def create_date_certainty(day, month, year):
+
+def date_certainty(day: str, month: str, year: str) -> str:
+    """Determine if a date should be considered exact or not."""
     if day and month and year:
         return 'Exact'
     else:
         return 'Estimated'
+
 
 def generate_deportee_feature_collection(deportee_map_data, deportee_properties_data):
     """Return a GeoJSON feature collection for a given individual."""
@@ -42,9 +53,11 @@ def generate_deportee_feature_collection(deportee_map_data, deportee_properties_
     }
     return deportee
 
+
 def generate_deportee_features(deportee_map_data):
     features = [generate_feature(row) for row in deportee_map_data]
     return features
+
 
 def generate_feature(row):
     """
@@ -59,13 +72,13 @@ def generate_feature(row):
     of big schema changes.
     """
 
-    datecertainty = row['gsx$datecertainty']['$t'] or create_date_certainty(
+    datecertainty = row['gsx$datecertainty']['$t'] or date_certainty(
         row['gsx$startday']['$t'],
         row['gsx$startmonth']['$t'],
         row['gsx$startyear']['$t']
     )
 
-    time = create_time(
+    time = offset_date(
         row['gsx$startday']['$t'],
         row['gsx$startmonth']['$t'],
         row['gsx$startyear']['$t'],
@@ -101,6 +114,7 @@ def generate_feature(row):
     }
     return feature
 
+
 def generate_deportee_properties(deportee_properties_data):
     properties = {}
     for value in deportee_properties_data[0]:
@@ -109,9 +123,11 @@ def generate_deportee_properties(deportee_properties_data):
             properties[value_name] = deportee_properties_data[0][value]['$t']
     return properties
 
+
 def export_output(output):
     with open('static/data.geojson', 'w') as export_file:
         json.dump(output, export_file, sort_keys=True, indent=4)
+
 
 def main():
     """Main execution body."""
@@ -121,7 +137,6 @@ def main():
     deportees = list(set([x['gsx$name']['$t'] for x in properties_data]))
     trains = list(set([x['gsx$trainid']['$t'] for x in properties_data]))
     ethnicities = list(set([x['gsx$ethnicity']['$t'] for x in properties_data]))
-
 
     output = {
         "filters": {
@@ -143,6 +158,7 @@ def main():
             )
 
     export_output(output)
+
 
 if __name__ == "__main__":
     main()
