@@ -139,9 +139,9 @@ def generate_filters(properties_data): # clean this up
     filter_types = [x for x in properties_data[0].keys() if 'gsx$' in x]
     output = {}
     for _filter in filter_types:
-        output[_filter[4:]] = list(set(
+        output[_filter[4:]] = sorted(list(set(
             [x[_filter]['$t'] for x in properties_data if x[_filter]['$t']]
-        ))
+        )))
     return output
 
 def main():
