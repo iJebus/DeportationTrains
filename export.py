@@ -54,8 +54,14 @@ def generate_deportee_feature_collection(deportee_map_data, deportee_properties_
     return deportee
 
 
+def valid_lat_long(row):
+    return row['gsx$long']['$t'].strip() and row['gsx$lat']['$t'].strip()
+
+
 def generate_deportee_features(deportee_map_data):
-    features = [generate_feature(row) for row in deportee_map_data]
+    features = [
+        generate_feature(row) for row in deportee_map_data if valid_lat_long(row)
+    ]
     return features
 
 
