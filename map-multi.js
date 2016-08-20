@@ -47,11 +47,10 @@ $.getJSON('/static/data.geojson', function (data) {
     mapData = data; // Make available globally for other functions to use later
     populateFilters(mapData); // Add passengers and filter fields
     console.log(mapData.geojson);
-    filters = {};
-    filters.selectedTrain = "Westbound May-June 1919";//$( "#Trains" ).val();//$("#Trains option:selected").text();//// $('#Trains').find(":selected").text();////
-    filters.selectedNationality = $( "#Nationality" ).val();
+    $("#apply").click(function() {
+           filter();
+       });
     
-    console.log(filters);
 
     // Attaches data to each point on click/popup, we may/may not actually want this on the main map; maybe just the person and a link to their page/map. Option for a modal popup?
     function onEachFeature(feature, layer) {
@@ -71,35 +70,42 @@ $.getJSON('/static/data.geojson', function (data) {
     }
 
     // Adds each person to the map, with custom icons
-    $(document).ready(function() {
-      $("#apply").click( function(){                      
+    
+    function filter() { // if a filter exists, set value in the filters object
+        filters = {};
+        for (var filter in $( "#filter option:selected" )) {
+            console.log(filter.text);
+        }
+        if ($( "#Trains" ).val()) filters.trainid = $( "#Trains" ).val(); //"Westbound May-June 1919";
+        if ($( "#Nationality" ).val()) filters.ethnicity = $( "#Nationality" ).val();
+        console.log(filters);
+        
+        
+    
         for (var person in mapData.geojson) {
-          filteredData = L.geoJson(mapData.geojson[person], {
-            filter: function(feature, layer) {
-                //return ( feature['properties']['ethnicity'] ===filters.selectedNationality && feature['properties']['trainidentifier'] === filters.selectedTrain);
-                return feature['properties']['trainid'] === filters.selectedTrain //&& feature['properties']['ethnicity'] ===filters.selectedNationality);
-                //return feature['properties']['ethnicity'] === filters.selectedNationality;
-            }
-        });
-            filteredData.addTo(map);
-            console.log(filteredData);
-         personGeoJson = L.geoJson(filteredData, {
+            //for (var person in mapData.geojson) {  
+//          var filtered = L.geoJson(mapData.geojson[person], {filter: layerFilter}).addTo(map);
+//
+          var personGeoJson = L.geoJson(data.geojson[person], {
             pointToLayer: function (feature, latlng) {
                 return getMarker(feature, latlng); // surely we can replace the anon function directly with this?
-                
-                //return L.marker(latlng);
             },
-            
-//            filter: function(feature, layer) {
-//                //if($('select').val === "null")
-//                  //  {return;}
-//                //else{
-//                return ( feature['properties']['ethnicity'] ===filters.selectedNationality &&feature['properties']['trainidentifier'] === filters.selectedTrain);
-//            },
-             //mapData.geojson[perso]
-            onEachFeature: onEachFeature}).addTo(map);
-       
-        
+              filter: function(feature,layer) {
+                  var matched = 0; // Init number of matched filters to 0
+                  var activeFilters = Object.keys(filters).length; // Init the number of filters being used
+                  for (var filter in filters) {
+                      if (filters[filter] === data.geojson[person].properties[filter]) {
+                          matched += 1;
+                      }
+                  }
+                  if (matched === activeFilters) {
+                      return true;
+                  }
+                     
+              },
+          
+            onEachFeature: onEachFeature
+        }).addTo(map);
         var personTimeLayer = L.timeDimension.layer.geoJson(personGeoJson, {    
             updateTimeDimension: true,
             updateTimeDimensionMode: 'union', // timeline of only when events are occuring
@@ -110,34 +116,14 @@ $.getJSON('/static/data.geojson', function (data) {
         });
         personTimeLayer.addTo(map);
         }
+    }
     });
     
-        });
-    })
-*$("#reset").on("click", function () {
+        
+
+ 
+$("#reset").on("click", function () {
     
     $('select').val('');
     //console.log(filters);
 });
-/*for (var person in jsonData.geojson) {
-start = L.geoJson(jsonData.geojson['Hannah Sullivan'], {
-    filter: function(feature, layer) {
-                return feature['properties']['start'] ;
-            }
-})
-console.log(start)
-feature['properties']['ethnicity'] ===filters.selectedNationality &&*/
-//for (var person in mapData.geojson) { 
-//    filter: function(feature,layer){
-//        return feature['properties']['ethnicity'] ===$( "#Natonality" ).val();
-//    }
-//}
-//for (var person in mapData.geojson) { 
-//var polyLayer = L.geoJson(mapData.geojson.person, {filter: filter1}).addTo(map);
-//}
-//function filter1(feature){
-//    if(feature['properties']['ethnicity'] ===$( "#Natonality" ).val();)
-//            return true;
-//    }
-//
-//    }

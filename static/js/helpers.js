@@ -1,15 +1,45 @@
 L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa'; // Set marker default to use font awesome
 
-function populateFilters(data) {
+function populateFilters(mapData) {
+    /*
     // Populates filters on initial page load, needs work
-    for (var i in data.persons) {
-        $('#passengers').append('<li><a href="#">' + data.persons[i] + '</a></li');
+    for (var i in mapData.filters.deportees) {
+        $('#passengers').append('<option>' + mapData.filters.deportees[i] + '</option');
+        //$('#passengers').append('<li><a href="#">' + mapData.filters.deportees[i] + '</a></li');
     }
-
-    for (var i in data.trains) {
-        $('#trains > select').append('<option>' + data.trains[i] + '</option');
+    for (var i in mapData.filters.trains) {
+        $('#trains').append('<option>' + mapData.filters.trains[i] + '</option');
+    }
+    for(var persons in mapData.filters){
+        var ethnicity = mapData.geojson[persons]['properties']['ethnicity'];
+        $("#nationality > option").each(function() {
+    //alert(this.text + ' ' + this.value);
+            //var exist = false;
+            if( this.value === ethnicity ){
+                return false;
+                else
+                    $('#nationality').append('<option>' + ethnicity + '</option'); 
+            }});
+    //for (var i in mapData.geojson[persons]['properties']['ethinicity']){
+       
+    }
+    console.log(mapData.filters);
+    for(var persons in mapData.geojson){
+      var offence  = mapData.geojson[persons]['properties']['justificationforremovalprimary'];
+        $('#offence').append('<option>' + offence + '</option');
+    }
+    */
+    for (var filter in mapData.filters) {
+        var target = '#' + filter;
+        if ( $( target ).length ) {
+            for (var option in mapData.filters[filter]) {
+                $(target).append('<option>' + mapData.filters[filter][option] + '</option');
+            }
+        }
     }
 }
+    
+
 
 const icons = {
     'Detention 1': {
