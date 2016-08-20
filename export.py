@@ -135,25 +135,26 @@ def export_output(output):
         json.dump(output, export_file, sort_keys=True, indent=4)
 
 
+def generate_filters(properties_data): # clean this up
+    filter_types = [x for x in properties_data[0].keys() if 'gsx$' in x]
+    output = {}
+    for _filter in filter_types:
+        output[_filter[4:]] = list(set(
+            [x[_filter]['$t'] for x in properties_data if x[_filter]['$t']]
+        ))
+    return output
+
 def main():
     """Main execution body."""
     map_data = requests.get(MAP_ENGINE_URL).json()['feed']['entry']
     properties_data = requests.get(PEOPLE_URL).json()['feed']['entry']
 
-    deportees = list(set([x['gsx$name']['$t'] for x in properties_data]))
-    trains = list(set([x['gsx$trainid']['$t'] for x in properties_data]))
-    ethnicities = list(set([x['gsx$ethnicity']['$t'] for x in properties_data]))
-
     output = {
-        "filters": {
-            "trains": trains,
-            "deportees": deportees,
-            'ethnicities': ethnicities
-        },
+        "filters": generate_filters(properties_data),
         "geojson": {}
     }
 
-    for deportee in deportees:
+    for deportee in output['filters']['name']:
         deportee_map_data = [row for row in map_data if row['gsx$name']['$t'] == deportee]
         deportee_properties_data = [row for row in properties_data if row['gsx$name']['$t'] == deportee]
 
