@@ -1,7 +1,5 @@
-// Map Config
-L.Icon.Default.imagePath = '/static/img'; // Non-default path to image folder
-
-var map = newMap('main-map', 38, -97);
+var mainMap = newMap('main-map', 38, -97);
+var personalMap;
 
 function newMap(target, start_lat, start_long) {
   // Create map object with defined bounds, view and zoom
@@ -48,6 +46,17 @@ function newMap(target, start_lat, start_long) {
   return map;
 }
 
+$('#myModal').on('shown.bs.modal', function (e) {
+  personalMap = newMap('secondary-map', 35, -95);
+})
+
+$('#myModal').on('hidden.bs.modal', function (e) {
+  personalMap.remove();
+})
+
+document.getElementById("personal-map-button").onclick = function () { 
+};
+
 $.getJSON('/static/data.geojson', function (data) {
     // mapData = data; // Make available globally for other functions to use later
     populateFilters(data); // Add passengers and filter fields
@@ -86,6 +95,6 @@ $.getJSON('/static/data.geojson', function (data) {
             // duration: 'P1Y' // Hide points after this much time has expired since event i.e. one year later, remove this marker
             // waitForReady: true,
         });
-        personTimeLayer.addTo(map);
+        personTimeLayer.addTo(mainMap);
     }
 })

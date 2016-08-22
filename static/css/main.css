@@ -18,6 +18,13 @@ body {
   border-radius: 5px;
 }
 
+#secondary-map {
+  height: 600px;
+  background-color: #101010;
+  border: medium solid gray;
+  border-radius: 5px;
+}
+
 .container {
     margin-top:5px;
 }
