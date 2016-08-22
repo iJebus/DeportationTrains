@@ -7,6 +7,11 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 #### General
 #### Frontend
 #### Backend
+- Rewrite of unique filter set code to provide all available filters
+
+## [16.08.sprint1]
+### Added
+#### Backend
 - Reimplementation/breaking changes to script extracting data from google sheets
   - Great deal more properties available on each user
   - Growing number of pregenerated unique sets e.g. Names, trains, nationalities
