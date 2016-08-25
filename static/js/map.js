@@ -10,16 +10,34 @@ $( document ).ready(function() {
   }).done(function() {
     mainMap = newTrainMap('main-map', 38, -97);
     populateMap();
+    populateFilters();
   });
 });
 
 // **** Personal map page logic ****
-$('#myModal').on('shown.bs.modal', function (e) {
+$('#personal-modal').on('shown.bs.modal', function (e) {
   personalMap = newTrainMap('secondary-map', 35, -95);
-  populateMap('Luey Mo');
+  var person = $('#name').val();
+  populateMap(person);
 })
 
-$('#myModal').on('hidden.bs.modal', function (e) {
+$('#personal-modal').on('hidden.bs.modal', function (e) {
   personalMap.remove();
 })
 
+$('#name').change(function() {
+  $('#personal-modal-label').text($(this).val());
+  $('#personal-modal').modal('toggle')
+});
+
+// **** Filters logic ****
+$("#reset").on("click", function () {
+    $('select').val('');
+});
+
+$("#apply").on("click", function () {
+  var filters = getActiveFilters();
+  mainMap.remove();
+  mainMap = newTrainMap('main-map', 38, -97);
+  populateMap(null, filters);
+});
