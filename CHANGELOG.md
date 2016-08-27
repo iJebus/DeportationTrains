@@ -6,6 +6,13 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 ### Added
 #### General
 #### Frontend
+- Working example of personal/individual deportee map
+#### Backend
+- Rewrite of unique filter set code to provide all available filters
+- Breakup major functions into smaller parts
+
+## [16.08.sprint1]
+### Added
 #### Backend
 - Reimplementation/breaking changes to script extracting data from google sheets
   - Great deal more properties available on each user
