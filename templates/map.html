@@ -6,50 +6,57 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.Default.css" />
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.Default.css" />-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.timedimension.control.css') }}"></script>
 {% endblock head %}
 
 {% block content %}
 <div class="container">
     <div class="row" id="map-row">
-      <div class="col-md-4" id="filters">
-        <div class="row">
+      <div class="col-md-4">
+        <div class="row" id="filters">
+                <h4>Filter the map...</h4>
             <div class="col-md-6">
-                <h3>Passengers</h3>
-                <p>Todo: list passengers currently shown on map and link to their individual map/page. Potential issue! How will this look with 400 people?</p>
-                <ul id="passengers">
-
-                </ul>
+                <label for="trainid">Train</label>
+                <select class="form-control" id="trainid">
+                    <option value=""></option>
+                </select>
+                <label for="ethnicity">Nationality</label>
+                <select class="form-control" id="ethnicity">
+                    <option value=""></option>
+                </select>
             </div>
             <div class="col-md-6">
-                <h3>Filters</h3>
-                <ul class="nav nav-pills nav-stacked">
-                  <li class="active"><a data-toggle="pill" href="#trains" id="Trains">Trains</a></li>
-                  <li><a data-toggle="pill" href="#persons" id="Nationality">Country of Origin</a></li>
-                  <li><a data-toggle="pill" href="#persons" id = "Offence">Primary Offence</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div id="trains" class="tab-pane fade in active">
-                    <select class="form-control"></select>
-                  </div>
-                  <div id="nationality" class="tab-pane fade">
-                    <select class="form-control"></select>
-                  </div>
-                </div>
+                <label for="justificationforremovalprimary">Offence</label>
+                <select class="form-control" id="justificationforremovalprimary">
+                    <option value=""></option>
+                </select>
+                <label for="sex">Gender</label>
+                <select class="form-control" id="sex">
+                    <option value=""></option>
+                </select>
             </div>
         </div>
+        <div class="row">
+            <h4>Or view an individual in greater detail.</h4>
+                <div class="col-md-12">
+                    <select class="form-control" id="name">
+                        <option value=""></option>
+                    </select>
+                </div>
+            <div>
+	        <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#personal-modal" id="personal-modal-button">
+                    Launch demo modal
+                </button>-->
+            </div>
+            </div>
         <hr>
         <div class="text-center">
-          <button type="button" class="btn btn-primary">Apply</button>
-          <button type="button" class="btn btn-danger">Reset</button>
-        </div>
-        <div class="text-center">
-	  <!-- Button trigger modal -->
-	  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="personal-map-button">
-              Launch demo modal
-            </button>
+            <div>
+                <button type="button" class="btn btn-primary" id="apply">Apply</button>
+                <button type="button" class="btn btn-danger" id="reset">Reset</button>
+            </div>
         </div>
       </div>
 
@@ -58,12 +65,12 @@
       </div>
     </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="personal-modal" tabindex="-1" role="dialog" aria-labelledby="personal-modal-label">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="myModalLabel">Person name goes here</h3>
+        <h3 class="modal-title" id="personal-modal-label">Take a closer look...</h3>
       </div>
       <div class="modal-body">
         <div id="secondary-map"></div>
@@ -102,11 +109,12 @@
 
 {% block scripts %}
 <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster-src.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster-src.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
 <script src="{{ url_for('static', filename='js/iso8601.js') }}"></script>
-<script src="{{ url_for('static', filename='js/leaflet.timedimension.src.withlog.js') }}"></script>
+<!--<script src="{{ url_for('static', filename='js/leaflet.timedimension.src.withlog.js') }}"></script>-->
+<script src="{{ url_for('static', filename='js/leaflet.timedimension.src.js') }}"></script>
 <script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 {% endblock scripts %}

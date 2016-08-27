@@ -1,3 +1,26 @@
+// **** Filter helpers ****
+function populateFilters() {
+  for (var filter in mapData.filters) {
+        var target = '#' + filter;
+        if ( $( target ).length ) {
+            for (var option in mapData.filters[filter]) {
+                $(target).append('<option>' + mapData.filters[filter][option] + '</option');
+            }
+        }
+    }
+}
+
+function getActiveFilters() {
+  var selectedFilters = {};
+  var filters = $("#filters select").toArray();
+  for (var i in filters) {
+    if (filters[i].value) {
+      selectedFilters[filters[i].id] = filters[i].value;
+    }
+  }
+  return selectedFilters;
+}
+
 // **** Map helpers ****
 function addBasemap(map) {
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
@@ -51,25 +74,38 @@ function newTrainMap(target, start_lat, start_long) {
   return map;
 }
 
-function populateMap(person) {
-  if (person) {
-    var personGeoJson = L.geoJson(mapData.geojson[person], {
+function populateMap(p, filters) {
+  if (p) {
+    var personGeoJson = L.geoJson(mapData.geojson[p], {
       pointToLayer: function (feature, latlng) {
         return getMarker(feature, latlng);
       },
       onEachFeature: onEachFeature
     })
-    var personTimeLayer = L.timeDimension.layer.geoJson(personGeoJson, {
-      updateTimeDimension: true,
-      updateTimeDimensionMode: 'union', // timeline of only events occuring
-      // timeline of each day between earliest date and latest date
-      // updateTimeDimensionMode: 'extreme', 
-      addlastPoint: false,
-      // duration: 'P1Y' // Remove points after this duration expired
-      // waitForReady: true,
-    });
+
+    var personTimeLayer = addTimeLayer(personGeoJson);
     personTimeLayer.addTo(personalMap);
-  // todo
+  } else if (filters) {
+    for (var person in mapData.geojson) {
+      var matched = 0;
+      var activeFilters = Object.keys(filters).length;
+      for (var filter in filters) {
+        if (filters[filter] === mapData.geojson[person].properties[filter]) {
+           matched += 1;
+        }
+      }
+      if (matched === activeFilters) {
+          var personGeoJson = L.geoJson(mapData.geojson[person], {
+            pointToLayer: function (feature, latlng) {
+              return getMarker(feature, latlng);
+            },
+            onEachFeature: onEachFeature
+          });
+
+          var personTimeLayer = addTimeLayer(personGeoJson);
+          personTimeLayer.addTo(mainMap);
+        }
+      }
   } else {
     // Adds each person to the map, with custom icons
     for (var person in mapData.geojson) {
@@ -78,9 +114,16 @@ function populateMap(person) {
           return getMarker(feature, latlng);
         },
         onEachFeature: onEachFeature
-      })
+      });
 
-      var personTimeLayer = L.timeDimension.layer.geoJson(personGeoJson, {
+      var personTimeLayer = addTimeLayer(personGeoJson);
+      personTimeLayer.addTo(mainMap);
+    }
+  }
+}
+
+function addTimeLayer(personGeoJson) {
+  return L.timeDimension.layer.geoJson(personGeoJson, {
         updateTimeDimension: true,
         updateTimeDimensionMode: 'union', // timeline of only events occuring
         // timeline of each day between earliest date and latest date
@@ -88,10 +131,7 @@ function populateMap(person) {
         addlastPoint: false,
         // duration: 'P1Y' // Remove points after this duration expired
         // waitForReady: true,
-      });
-      personTimeLayer.addTo(mainMap);
-    }
-  }
+      })
 }
     
 
