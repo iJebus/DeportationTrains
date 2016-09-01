@@ -34,14 +34,16 @@ def offset_date(day: str, month: str, year: str, offset: int) -> str:
         day.strip() or '15'
     ]
     return '-'.join(time)
+    # todo proper handling of missing values or incorrect values e.g. 'aa'
 
 
 def date_certainty(day: str, month: str, year: str) -> str:
     """Determine if a date should be considered exact or not."""
-    if day and month and year:
+    if int(day) and int(month) and int(year):
         return 'Exact'
     else:
         return 'Estimated'
+    # todo proper handling of missing values or incorrect values e.g. 'aa'
 
 
 def generate_deportee_feature_collection(deportee_map_data, deportee_properties_data):
@@ -135,7 +137,7 @@ def export_output(output):
         json.dump(output, export_file, sort_keys=True, indent=4)
 
 
-def generate_filters(properties_data): # clean this up
+def generate_filters(properties_data):  # clean this up
     filter_types = [x for x in properties_data[0].keys() if 'gsx$' in x]
     output = {}
     for _filter in filter_types:
@@ -143,6 +145,7 @@ def generate_filters(properties_data): # clean this up
             [x[_filter]['$t'] for x in properties_data if x[_filter]['$t']]
         )))
     return output
+
 
 def main():
     """Main execution body."""
@@ -168,4 +171,5 @@ def main():
 
 
 if __name__ == "__main__":
+    # Todo: cli interface?
     main()
