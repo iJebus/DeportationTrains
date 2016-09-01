@@ -6,10 +6,19 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 ### Added
 #### General
 #### Frontend
+#### Backend
+
+## [16.08.sprint2]
+### Added
+#### General
+- Requirements-dev.txt file for some the more development-only side of things. Still need to clean requirements.txt
+#### Frontend
 - Working example of personal/individual deportee map
 #### Backend
 - Rewrite of unique filter set code to provide all available filters
 - Breakup major functions into smaller parts
+- Start writing out some very basic tests
+- Start of implmenting direct to s3 upload
 
 ## [16.08.sprint1]
 ### Added
