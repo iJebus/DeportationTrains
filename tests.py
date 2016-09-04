@@ -38,7 +38,13 @@ def test_generate_deportee_properties():
 
 
 def test_export_output():
-    pass  # Todo
+    import json
+    file_path = '/tmp/test_export_output.json'
+    output = {'a': '1', 'b': '2', 'c': '3'}  # make this more realistic
+    export.export_output(output, file_path=file_path)
+    with open(file_path) as f:
+        data = f.read()
+    assert output == json.loads(data)
 
 
 def test_generate_filters():
