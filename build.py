@@ -18,7 +18,7 @@ def index():
 
 @app.route('/map/')
 def map():
-    return render_template('map.html')
+    return render_template('map2.html')
 
 @app.route('/project/')
 def project():

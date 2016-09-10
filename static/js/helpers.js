@@ -133,6 +133,8 @@ function addTimeLayer(personGeoJson) {
         // waitForReady: true,
       })
 }
+    
+
 
 function onEachFeature(feature, layer) {
   // Attaches data to each point on click/popup
@@ -237,5 +239,5 @@ function getMarker(feature, latlng) {
 
   var icon = L.AwesomeMarkers.icon(iconOptions);
   var marker = L.marker(latlng, {icon: icon});
-  return marker
+  return marker;
 }

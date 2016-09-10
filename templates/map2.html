@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Map{% endblock title %}
+{% block description %}Mapping deportees{% endblock description %}
+
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.timedimension.control.css') }}"></script>
+<!--Multi-Column-Select.<link rel="stylesheet" href="Multi-Column-Select/Multi-Column-Select.css">-->
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    <div class="row" id="map-row">
+      <div class="col-md-4" id="filters">
+        <div class="row" id="filter">
+            <div class="col-md-6">
+                <h3><b>Passengers</b></h3>
+                <select class="form-control" id="passengers">
+                    <option value="" ></option>
+                </select>               
+                <!--<p>Todo: list passengers currently shown on map and link to their individual map/page. Potential issue! How will this look with 400 people?</p>
+                <ul id="passengers">
+
+                </ul>-->
+            </div>
+            <div class="col-md-6">
+                <h3><b>Filters</b></h3>
+                <label for="trainid">Trains</label>
+                <select class="form-control" id="trainid">
+                    <option value=""></option>
+                </select>
+                <br>
+                <label for="ethnicity">Nationality</label>
+                <select class="form-control" id="ethnicity">
+                    <option value=""></option>
+                </select>
+                <br>
+                <label for="offence">Offence</label>
+                <select class="form-control" id="offence">
+                    <option value=""></option>
+                </select>
+                <br>
+                <label for="detention">Detention</label>
+                <select class="form-control" id="detention">
+                    <option value=""></option>
+                </select>
+                <br>
+                <!--<ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a data-toggle="pill" href="#trains" id="Trains">Trains</a></li>
+                  <li><a data-toggle="pill" href="#persons" id="Nationality">Country of Origin</a></li>
+                  <li><a data-toggle="pill" href="#persons" id = "Offence">Primary Offence</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div id="trains" class="tab-pane fade in active">
+                    <select class="form-control"></select>
+                  </div>
+                  <div id="nationality" class="tab-pane fade">
+                    <select class="form-control"></select>
+                  </div>
+                </div>-->
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+          <button type="button" class="btn btn-primary" id="apply">Apply</button>
+          <button type="button" class="btn btn-danger" id="reset">Reset</button>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div id="main-map"></div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0-rc.1.0/leaflet.markercluster-src.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<script src="{{ url_for('static', filename='js/iso8601.js') }}"></script>
+<script src="{{ url_for('static', filename='js/leaflet.timedimension.src.withlog.js') }}"></script>
+<script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map1.js') }}"></script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="Multi-Column-Select/Multi-Column-Select.js"></script>-->
+{% endblock scripts %}
