@@ -132,9 +132,9 @@ def generate_deportee_properties(deportee_properties_data):
     return properties
 
 
-def export_output(output):
-    with open('static/data.geojson', 'w') as export_file:
-        json.dump(output, export_file, sort_keys=True, indent=4)
+def export_output(output, file_path='static/data.geojson'):
+    with open(file_path, 'w') as file:
+        json.dump(output, file, sort_keys=True, indent=4)
 
 
 def generate_filters(properties_data):  # clean this up
