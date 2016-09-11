@@ -14,15 +14,11 @@ Install python requirements.
 
 Run local development environment with hot-reloading. Browser will automatically open.
 
-`python build.py`
+`python run.py`
 
 Create a static production build; files will be placed in the 'build' folder.
 
-`python build.py create`
-
-Deploy a production build; login credentials can be provided as environment variables or directly in build.py. Files will be placed on S3.
-
-`AWS_ACCESS_KEY_ID=xxx AWS_SECRET_ACCESS_KEY=xxx python build.py deploy`
+`python run.py create`
 
 These files then need to be made available by a web server of some type; intended platform is S3 however a local python server will do for testing.
 
@@ -30,3 +26,8 @@ These files then need to be made available by a web server of some type; intende
 cd build
 python -m http.server
 ```
+
+Deploy the build to a remote provider (e.g. AWS S3); login credentials and bucket config can be provided as environment variables or in config.yml.
+
+`python build.py deploy S3`
+

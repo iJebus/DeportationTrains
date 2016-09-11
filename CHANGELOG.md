@@ -5,8 +5,13 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 #### General
+- Update README regarding deployment details
+- Ignoring PEP8 line too long, though will still generally try to keep below 80 characters per line
 #### Frontend
 #### Backend
+- Create providers file/module, currently only contains AWS/S3
+- Create YAML-based external config for e.g. AWS/S3 credentials/config
+- Add Selenium tests
 
 ## [16.08.sprint2]
 ### Added
