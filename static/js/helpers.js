@@ -127,19 +127,19 @@ function addTimeLayer(personGeoJson) {
         updateTimeDimension: true,
         updateTimeDimensionMode: 'union', // timeline of only events occuring
         // timeline of each day between earliest date and latest date
-        // updateTimeDimensionMode: 'extreme', 
+        // updateTimeDimensionMode: 'extreme',
         addlastPoint: false,
         // duration: 'P1Y' // Remove points after this duration expired
         // waitForReady: true,
       })
 }
-    
+
 
 
 function onEachFeature(feature, layer) {
   // Attaches data to each point on click/popup
   // we may/may not actually want this on the main map
-  // maybe just the person and a link to their page/map. 
+  // maybe just the person and a link to their page/map.
   // Option for a modal popup?
     var table = document.createElement('table');
     table.className = "table";
