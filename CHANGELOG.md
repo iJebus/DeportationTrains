@@ -7,6 +7,8 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 #### General
 - Update README regarding deployment details
 - Ignoring PEP8 line too long, though will still generally try to keep below 80 characters per line
+- Add .editorconfig to help with consistent style/clean files
+- General cleanup of dead code/files etc from repo
 #### Frontend
 #### Backend
 - Create providers file/module, currently only contains AWS/S3
