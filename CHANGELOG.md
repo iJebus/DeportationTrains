@@ -9,6 +9,7 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 - Ignoring PEP8 line too long, though will still generally try to keep below 80 characters per line
 - Add .editorconfig to help with consistent style/clean files
 - General cleanup of dead code/files etc from repo
+- Automatically deploy new commits to S3 on successful passing of tests (via Travis CI)
 #### Frontend
 #### Backend
 - Create providers file/module, currently only contains AWS/S3
