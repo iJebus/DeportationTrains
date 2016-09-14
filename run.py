@@ -31,9 +31,11 @@ def project():
 
 # Replace this logic with click library
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'create':
+    if len(sys.argv) > 1 and sys.argv[1] == 'build':
+        print('Building static site')
         freezer.freeze()
-    if len(sys.argv) > 1 and sys.argv[1] == 'deploy':
+        print('Static site built to ./build directory')
+    elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
         deploy_target = provider(sys.argv[2])  # This language could be cleaned up. Provider? Deploy target? What's does each mean?
         deploy_target.deploy()
     else:
