@@ -39,9 +39,12 @@ def offset_date(day: str, month: str, year: str, offset: int) -> str:
 
 def date_certainty(day: str, month: str, year: str) -> str:
     """Determine if a date should be considered exact or not."""
-    if int(day) and int(month) and int(year):
-        return 'Exact'
-    else:
+    try:
+        if int(day) and int(month) and int(year):
+            return 'Exact'
+        else:
+            return 'Estimated'
+    except ValueError as e:
         return 'Estimated'
     # todo proper handling of missing values or incorrect values e.g. 'aa'
 
