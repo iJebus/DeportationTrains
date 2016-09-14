@@ -47,7 +47,8 @@ class S3:
                     Body=f,
                     Bucket=self.bucket,
                     Key=remote_path,
-                    ContentType=mimetypes.guess_type(local_path)[0] or 'application/octet-stream'
+                    ContentType=mimetypes.guess_type(local_path)[0] or 'application/octet-stream',
+                    StorageClass='REDUCED_REDUNDANCY'
                 )
                 logging.info('Uploaded {local} to {remote}'.format(
                     local=local_path,
