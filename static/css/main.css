@@ -58,3 +58,8 @@ color:aliceblue;
     filter: blur(1.25px);
     opacity: 0.75;
 }
+
+/* @media (min-width: 1200px) Would be nice but gets ignored? */
+.modal-lg {
+    width: 80%;
+}
