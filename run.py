@@ -29,13 +29,18 @@ def project():
     return render_template('project.html')
 
 
+def build():
+    print('Building static site')
+    freezer.freeze()
+    print('Static site built to ./build directory')
+
+
 # Replace this logic with click library
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
-        print('Building static site')
-        freezer.freeze()
-        print('Static site built to ./build directory')
+        build()
     elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
+        build()
         deploy_target = provider(sys.argv[2])  # This language could be cleaned up. Provider? Deploy target? What's does each mean?
         deploy_target.deploy()
     else:

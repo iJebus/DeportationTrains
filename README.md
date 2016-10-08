@@ -18,7 +18,7 @@ Run local development environment with hot-reloading. Browser will automatically
 
 Create a static production build; files will be placed in the 'build' folder.
 
-`python run.py create`
+`python run.py build`
 
 These files then need to be made available by a web server of some type; intended platform is S3 however a local python server will do for testing.
 
@@ -29,5 +29,5 @@ python -m http.server
 
 Deploy the build to a remote provider (e.g. AWS S3); login credentials and bucket config can be provided as environment variables or in config.yml.
 
-`python build.py deploy S3`
+`python run.py deploy S3`
 

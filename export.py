@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Create GeoJSON export of public DeportationTrains Google Sheets data."""
 import json
 import requests
