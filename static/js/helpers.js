@@ -76,7 +76,7 @@ function newTrainMap(target, start_lat, start_long) {
 
 function populateMap(p, filters) {
   if (p) {
-    var personGeoJson = L.geoJson(mapData.geojson[p], {
+    var personGeoJson = L.geoJson(p, {
       pointToLayer: function (feature, latlng) {
         return getMarker(feature, latlng);
       },
@@ -241,3 +241,30 @@ function getMarker(feature, latlng) {
   var marker = L.marker(latlng, {icon: icon});
   return marker;
 }
+
+function populatePersonalDetails(person) {
+    let story = $('#personal-story');
+    let story_content = "\
+    <p><b>Born:</b> " + person.properties.birthyear + "</p>\
+    <p><b>Ethnicity:</b> " + person.properties.ethnicity + "</p>\
+    <p><b>Train ID:</b> " + person.properties.trainid + "</p>\
+    <p><b>Married:</b> " + person.properties.marriagestatus + "</p>"
+
+    let documents = $('#personal-documents');
+    let documents_content = "\
+    "
+
+    story.append(story_content);
+    documents.append('<p>' + 'cheese' + person + '</p>');
+    console.log(person);
+}
+
+function resetPersonalDetails() {
+    let story = $('#personal-documents');
+    let documents = $('#personal-story');
+    story.empty()
+    documents.empty();
+    console.log('reset documents');
+}
+
+

@@ -17,12 +17,15 @@ $( document ).ready(function() {
 // **** Personal map page logic ****
 $('#personal-modal').on('shown.bs.modal', function (e) {
   personalMap = newTrainMap('secondary-map', 35, -95);
-  var person = $('#name').val();
+  var person_name = $('#name').val();
+  var person = mapData.geojson[person_name]
+  populatePersonalDetails(person);
   populateMap(person);
 })
 
 $('#personal-modal').on('hidden.bs.modal', function (e) {
   personalMap.remove();
+  resetPersonalDetails();
 })
 
 $('#name').change(function() {
