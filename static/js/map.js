@@ -31,13 +31,22 @@ $('#name').change(function() {
 });
 
 // **** Filters logic ****
-$("#reset").on("click", function () {
+function reset_filters() {
     $('select').val('');
-});
+}
 
-$("#apply").on("click", function () {
+function apply_filters() {
   var filters = getActiveFilters();
   mainMap.remove();
   mainMap = newTrainMap('main-map', 38, -97);
   populateMap(null, filters);
+}
+
+$("#reset").on("click", function () {
+    reset_filters();
+    apply_filters();
+});
+
+$("#apply").on("click", function () {
+    apply_filters();
 });
