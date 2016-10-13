@@ -245,18 +245,22 @@ function getMarker(feature, latlng) {
 function populatePersonalDetails(person) {
     let story = $('#personal-story');
     let story_content = "\
-    <p><b>Born:</b> " + person.properties.birthyear + "</p>\
+    <p><b>Case Number:</b> " + person.properties.casefilenumber + "</p>\
+    <p><b>Born:</b> " + (person.properties.birthyear || 'Unknown') + "</p>\
+    <p><b>Gender:</b> " + (person.properties.gender || 'Unknown') + "</p>\
     <p><b>Ethnicity:</b> " + person.properties.ethnicity + "</p>\
-    <p><b>Train ID:</b> " + person.properties.trainid + "</p>\
+    <p><b>Citizenship:</b> " + person.properties.citizenship + "</p>\
+    <p><b>Occupations:</b> " + [person.properties.occupation1, person.properties.occupation2, person.properties.occupation3].join(', ') + "</p>\
+    <p><b>Deportation Route:</b> " + person.properties.trainid + "</p>\
     <p><b>Married:</b> " + person.properties.marriagestatus + "</p>"
+    story.append(story_content);
 
     let documents = $('#personal-documents');
-    let documents_content = "\
-    "
-
-    story.append(story_content);
-    documents.append('<p>' + 'cheese' + person + '</p>');
-    console.log(person);
+    let documents_content = "";
+    person.documents.forEach(function(x) {
+      documents_content += "<p><a target=\"_blank\" href=\"https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/" + x + "\">" + x + "</a></p>"
+    });
+    documents.append(documents_content);
 }
 
 function resetPersonalDetails() {
