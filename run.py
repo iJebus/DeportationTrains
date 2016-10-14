@@ -1,9 +1,12 @@
-import sys
+import click
+import threading
+import time
 
 from flask import Flask, render_template
 from flask_frozen import Freezer
 from livereload import Server
 from providers import provider
+from export import main as build_geojson
 
 
 DEBUG = True
@@ -29,21 +32,48 @@ def project():
     return render_template('project.html')
 
 
+def run_task(start_msg, task, task_arg=None):
+    click.echo(start_msg, nl=False)
+    if task_arg:
+        t = threading.Thread(target=task, args=[task_arg])
+    else:
+        t = threading.Thread(target=task)
+    t.start()
+    while t.is_alive():
+        click.echo('.', nl=False)
+        time.sleep(1)
+    click.echo(' done.')
+
+
+@click.group()
+def cli():
+    pass
+
+
+@cli.command()
 def build():
-    print('Building static site')
-    freezer.freeze()
-    print('Static site built to ./build directory')
+    """Build the website into the ./build directory."""
+    run_task('Building website', freezer.freeze)
+    run_task('Fetching latest google sheets data', build_geojson)
+    click.echo('Build complete.')
+
+
+@cli.command()
+@click.argument('target', type=click.Choice(['S3']))
+def deploy(target):
+    """Deploy the website to a hosting provider."""
+    run_task('Starting deploy', provider, target)
+
+
+@cli.command()
+def dev():
+    """Run a localhost server for development."""
+    run_task('Fetching latest google sheets data', build_geojson)
+    server.watch('static')
+    server.watch('templates')
+    server.serve(open_url_delay=True, host='127.0.0.1', port=5000)
 
 
 # Replace this logic with click library
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'build':
-        build()
-    elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
-        build()
-        deploy_target = provider(sys.argv[2])  # This language could be cleaned up. Provider? Deploy target? What's does each mean?
-        deploy_target.deploy()
-    else:
-        server.watch('static')
-        server.watch('templates')
-        server.serve(open_url_delay=True, host='127.0.0.1', port=5000)
+    cli()
