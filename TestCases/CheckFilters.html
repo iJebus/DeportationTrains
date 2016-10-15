@@ -22,14 +22,24 @@
 	<td></td>
 </tr>
 <tr>
-	<td>waitForTitle</td>
-	<td>Deportation Trains | Map</td>
+	<td>assertLocation</td>
+	<td>http://127.0.0.1:5000/map/</td>
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
+	<td>verifyText</td>
+	<td>css=b</td>
+	<td>Passengers</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=passengers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
 	<td>css=label</td>
-	<td>Train</td>
+	<td>Trains</td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
@@ -37,61 +47,45 @@
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
+	<td>verifyText</td>
 	<td>id=trainid</td>
-	<td>label=Eastbound January 1915</td>
+	<td>exact:1914-19151919?Eastbound January 1915Eastbound June 1914 Eastbound June 1919Eastbound November - December 1914Eastbound November-December 1914Eastbound via Northern Route January 1915Not applicable - Returned to CanadaSouth and Eastbound March 1915South and Eastbound November - December 1914Westbound December 1914 - January 1915Westbound January 1915Westbound May 1919Westbound May-June 1919Westbound November-December 1914Westbound October 1914</td>
 </tr>
 <tr>
-	<td>verifySelectedLabel</td>
-	<td>id=trainid</td>
-	<td>exact:Eastbound January 1915</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=trainid</td>
-	<td>label=South and Eastbound November - December 1914</td>
-</tr>
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=trainid</td>
-	<td>exact:South and Eastbound November - December 1914</td>
+	<td>verifyText</td>
+	<td>//div[@id='filter']/div[2]/label[2]</td>
+	<td>Nationality</td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//div[@id='filters']/div[2]/label</td>
+	<td>id=ethnicity</td>
 	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=ethnicity</td>
+	<td>BritishChineseDalmatianDaneEnglishFrenchGreekHinduIndianIrishItalianItalian NJapaneseKoreanMexicanNorwegianRomanianSikh</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='filter']/div[2]/label[3]</td>
+	<td>Offence</td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>id=justificationforremovalprimary</td>
+	<td>id=offence</td>
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=justificationforremovalprimary</td>
-	<td>label=&quot;That he had two or more attacks of insanity previous to his entry into the United States&quot;</td>
-</tr>
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=justificationforremovalprimary</td>
-	<td>exact:&quot;That he had two or more attacks of insanity previous to his entry into the United States&quot;</td>
-</tr>
-<tr>
-	<td>select</td>
-	<td>id=justificationforremovalprimary</td>
-	<td>label=Brought in a woman for immoral purpose (adultery)</td>
-</tr>
-<tr>
-	<td>verifySelectedLabel</td>
-	<td>id=justificationforremovalprimary</td>
-	<td>exact:Brought in a woman for immoral purpose (adultery)</td>
+	<td>verifyText</td>
+	<td>//div[@id='filter']/div[2]/label[4]</td>
+	<td>Detention</td>
 </tr>
 <tr>
 	<td>verifyElementPresent</td>
-	<td>//select[@id='justificationforremovalprimary']/option[7]</td>
+	<td>id=detention</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>
