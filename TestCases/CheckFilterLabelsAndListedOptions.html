@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:5000/" />
+<title>CheckFilterLabelsAndListedOptions</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CheckFilterLabelsAndListedOptions</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://127.0.0.1:5000/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Map »</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>http://127.0.0.1:5000/map/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='map-row']/div/div[3]/h4</td>
+	<td>View an individual</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=label</td>
+	<td>Train</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=trainid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=trainid</td>
+	<td>exact:1914-19151919?Eastbound January 1915Eastbound June 1914 Eastbound June 1919Eastbound November - December 1914Eastbound November-December 1914Eastbound via Northern Route January 1915Not applicable - Returned to CanadaSouth and Eastbound March 1915South and Eastbound November - December 1914Westbound December 1914 - January 1915Westbound January 1915Westbound May 1919Westbound May-June 1919Westbound November-December 1914Westbound October 1914</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='filters']/div/label[2]</td>
+	<td>Nationality</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=ethnicity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=ethnicity</td>
+	<td>BritishChineseDalmatianDaneEnglishFrenchGreekHinduIndianIrishItalianItalian NJapaneseKoreanMexicanNorwegianRomanianSikh</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='filters']/div[2]/label</td>
+	<td>Offence</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=justificationforremovalprimary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=justificationforremovalprimary</td>
+	<td>&quot;That he had two or more attacks of insanity previous to his entry into the United States&quot;&quot;That he was an epileptic and a person likepy to become a public charge at the time of his entry into the United States&quot;&quot;found advocating or teaching the unlawful destruction of property&quot; &quot;found receiving, sharing in, and deriving benefit from the earnings of a prostitue; and that he has been found assisting a prostitute&quot;&quot;he was a person likely to become a public charge at the time of his entry into the United States&quot;Brought in a woman for immoral purpose (adultery)Chinese Exclusion ActEntered US for immoral purpose (adultery)Entered in violation of the Immigration Act of 1917Entered the US without insepctionEntered the US without inspectionEntered without inspection Felony involving moral turpitudeFound connected with the management of a house of prostitutionFound practicing prostitution subsequent to her entry into the United StatesFound receiving, sharing in and deriving benefit from the earnings of a prostituteInsane and has become a public charge within three years of entering the USInsane from causes existing prior to landingLPCLPC, ARRESTED FOR ASSAULTLPC, entered without inspectionLPC, insanityLikely to become a Public ChargeLikely to become a Public Charge (Malaria)Likely to beocome a Public ChargeMoral turpitudeMoral turpitude, prostitution, LPC, entered without inspectionPanderingPublic charge at Insane AsylumUnable to read English language or some other language at time of entry</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='filters']/div[2]/label[2]</td>
+	<td>Gender</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=sex</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=sex</td>
+	<td>FM</td>
+</tr>
+</tbody></table>
+</body>
+</html>
