@@ -7,10 +7,11 @@ import requests
 
 BASE_URL = (
     'https://spreadsheets.google.com/feeds/list/'
-    '1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/{sheet}/public/full?alt=json'
+    '1DdH4tBFFRlbk4kZ_oik6-M7jUJIrC1UtqYOs2yVy9-s/{sheet}/public/full?alt=json'
 )
-DOCUMENTS_URL = BASE_URL.format(sheet=1)
-PEOPLE_URL = BASE_URL.format(sheet=2)
+
+PEOPLE_URL = BASE_URL.format(sheet=1)
+DOCUMENTS_URL = BASE_URL.format(sheet=2)
 MAP_ENGINE_URL = BASE_URL.format(sheet=3)
 
 
@@ -61,13 +62,20 @@ def generate_deportee_feature_collection(deportee_map_data, deportee_properties_
     return deportee
 
 
-def valid_lat_long(row):
-    return row['gsx$long']['$t'].strip() and row['gsx$lat']['$t'].strip()
+def valid_feature(row):
+    try:
+        return (
+            float(row['gsx$long']['$t'].strip()) and
+            float(row['gsx$lat']['$t'].strip()) and
+            int(row['gsx$startyear']['$t'].strip())
+        )
+    except ValueError:
+        return False
 
 
 def generate_deportee_features(deportee_map_data):
     features = [
-        generate_feature(row) for row in deportee_map_data if valid_lat_long(row)
+        generate_feature(row) for row in deportee_map_data if valid_feature(row)
     ]
     return features
 
