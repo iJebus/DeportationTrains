@@ -1,0 +1,65 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+#index-sidebar img {
+  padding-top: 20px;
+}
+
+#main-map {
+  height: 600px;
+  background-color: #101010;
+  border: medium solid gray;
+  border-radius: 5px;
+}
+
+#secondary-map {
+  height: 600px;
+  background-color: #101010;
+  border: medium solid gray;
+  border-radius: 5px;
+}
+
+.container {
+    margin-top:5px;
+}
+.btn-default {
+background: #000000;
+color:aliceblue;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background: #a6a6a6;
+}
+.jumboton {
+    height: 100px;
+}
+
+#map-row {
+    padding-top: 20px;
+}
+
+#filters .btn {
+  margin: 20px 0;
+}
+#filters ul {
+    padding-left:0;
+}
+#passengers li {
+    list-style: none;
+}
+
+.icon--uncertain {
+    -webkit-filter: blur(1.25px);
+    filter: blur(1.25px);
+    opacity: 0.75;
+}
+
+/* @media (min-width: 1200px) Would be nice but gets ignored? */
+.modal-lg {
+    width: 80%;
+}

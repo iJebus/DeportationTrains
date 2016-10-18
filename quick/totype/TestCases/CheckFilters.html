@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:5000/" />
+<title>CheckFilters</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CheckFilters</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://127.0.0.1:5000/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Map »</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTitle</td>
+	<td>Deportation Trains | Map</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=label</td>
+	<td>Train</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=trainid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=trainid</td>
+	<td>label=Eastbound January 1915</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=trainid</td>
+	<td>exact:Eastbound January 1915</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=trainid</td>
+	<td>label=South and Eastbound November - December 1914</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=trainid</td>
+	<td>exact:South and Eastbound November - December 1914</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='filters']/div[2]/label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=justificationforremovalprimary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=justificationforremovalprimary</td>
+	<td>label=&quot;That he had two or more attacks of insanity previous to his entry into the United States&quot;</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=justificationforremovalprimary</td>
+	<td>exact:&quot;That he had two or more attacks of insanity previous to his entry into the United States&quot;</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=justificationforremovalprimary</td>
+	<td>label=Brought in a woman for immoral purpose (adultery)</td>
+</tr>
+<tr>
+	<td>verifySelectedLabel</td>
+	<td>id=justificationforremovalprimary</td>
+	<td>exact:Brought in a woman for immoral purpose (adultery)</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//select[@id='justificationforremovalprimary']/option[7]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
