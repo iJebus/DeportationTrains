@@ -1,17 +1,19 @@
 import boto3
 import botocore
+import json
 import os
 import yaml
 import mimetypes
 import logging
 import sys
 
+from PIL import Image
 
 BOTO_ERRORS = {
     'SignatureDoesNotMatch': 'The AWS key credential appears to be incorrect. Check config.yml or your AWS_SECRET_ACCESS_KEY_ID environment variable.',
     'InvalidAccessKeyId': 'The AWS ID credential appears to be incorrect. Check config.yml or your AWS_ACCESS_KEY_ID environment variable.',
 }
-
+THUMBNAIL_SIZE = (128, 128)
 
 with open("config.yml", 'r') as config_file:
     config = yaml.load(config_file)
@@ -31,8 +33,10 @@ class S3:
             )
         else:
             self.bucket_path = ''
+        self.img_dir = os.getenv('IMG_DIR', config['img_dir'])
         self.client = self.create_client()
         self.deploy()
+        self.upload_images()
 
     def create_client(self):
         return boto3.client(
@@ -74,6 +78,39 @@ class S3:
                 local_path = os.path.join(root, file)
                 remote_path = local_path.replace('build/', self.bucket_path)
                 self.__upload_file(local_path, remote_path)
+
+    def upload_images(self):
+        req_images = required_images()
+        for root, dirs, files in os.walk(self.img_dir):
+            for file in files:
+                if file in req_images:
+                    try:
+                        self.client.head_object(
+                            Bucket=self.bucket,
+                            Key='static/img/' + file
+                        )
+                    except botocore.exceptions.ClientError:
+                        local_path = os.path.join(root, file)
+                        remote_path = self.bucket_path + 'static/img/'
+                        thumbnail_path, thumbnail_file = create_thumbnail(local_path, file)
+                        self.__upload_file(local_path, remote_path + file)
+                        self.__upload_file(thumbnail_path, remote_path + thumbnail_file)
+
+
+def create_thumbnail(local_path, file):
+    thumbnail = 'thumb_' + file
+    thumbnail_path = local_path.replace(file, thumbnail)
+    im = Image.open(local_path)
+    im.thumbnail(THUMBNAIL_SIZE)
+    im.save(thumbnail_path, 'JPEG')
+    return thumbnail_path, thumbnail
+
+
+def required_images():
+    with open('static/data.geojson') as f:
+        data = json.load(f)
+    img_lists = [data['geojson'][x]['documents'] for x in data['geojson'] if data['geojson'][x]['documents']]
+    return [item for sublist in img_lists for item in sublist]
 
 
 def provider(target):

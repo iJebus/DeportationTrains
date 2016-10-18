@@ -62,6 +62,8 @@ def build():
 @click.argument('target', type=click.Choice(['S3']))
 def deploy(target):
     """Deploy the website to a hosting provider."""
+    run_task('Building website', freezer.freeze)
+    run_task('Fetching latest google sheets data', build_geojson)
     run_task('Starting deploy', provider, target)
 
 

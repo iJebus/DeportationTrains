@@ -257,8 +257,9 @@ function populatePersonalDetails(person) {
 
     let documents = $('#personal-documents');
     let documents_content = "";
+    let img_folder = "https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/"
     person.documents.forEach(function(x) {
-      documents_content += "<p><a target=\"_blank\" href=\"https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/" + x + "\">" + x + "</a></p>"
+      documents_content += "<p><a target=\"_blank\" href=\"" + img_folder + x + "\">" + "<img src=\"" + img_folder + "thumb_" + x + "\"></a></p>"
     });
     documents.append(documents_content);
 }

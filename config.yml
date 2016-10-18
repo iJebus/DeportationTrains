@@ -3,3 +3,4 @@ aws:
   key: fill_this
   bucket: deportation-trains
   bucket_path:
+img_dir: path_to_dropbox
