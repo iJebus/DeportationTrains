@@ -1,16 +1,18 @@
+#!/usr/bin/env python3
 """Create GeoJSON export of public DeportationTrains Google Sheets data."""
 import json
+import re
 import requests
 
 
-MAP_ENGINE_URL = (
+BASE_URL = (
     'https://spreadsheets.google.com/feeds/list/'
-    '1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/3/public/full?alt=json'
+    '1DdH4tBFFRlbk4kZ_oik6-M7jUJIrC1UtqYOs2yVy9-s/{sheet}/public/full?alt=json'
 )
-PEOPLE_URL = (
-    'https://spreadsheets.google.com/feeds/list/'
-    '1PdSBY70PJal_xMjLy_igDddDwgbGQC_URlIJelAHKXE/2/public/full?alt=json'
-)
+
+PEOPLE_URL = BASE_URL.format(sheet=1)
+DOCUMENTS_URL = BASE_URL.format(sheet=2)
+MAP_ENGINE_URL = BASE_URL.format(sheet=3)
 
 
 def offset_date(day: str, month: str, year: str, offset: int) -> str:
@@ -49,23 +51,31 @@ def date_certainty(day: str, month: str, year: str) -> str:
     # todo proper handling of missing values or incorrect values e.g. 'aa'
 
 
-def generate_deportee_feature_collection(deportee_map_data, deportee_properties_data):
+def generate_deportee_feature_collection(deportee_map_data, deportee_properties_data, deportee_documents_data):
     """Return a GeoJSON feature collection for a given individual."""
     deportee = {
         'features': generate_deportee_features(deportee_map_data),
         'properties': generate_deportee_properties(deportee_properties_data),
+        'documents': generate_deportee_documents(deportee_documents_data),
         'type': 'FeatureCollection'
     }
     return deportee
 
 
-def valid_lat_long(row):
-    return row['gsx$long']['$t'].strip() and row['gsx$lat']['$t'].strip()
+def valid_feature(row):
+    try:
+        return (
+            float(row['gsx$long']['$t'].strip()) and
+            float(row['gsx$lat']['$t'].strip()) and
+            int(row['gsx$startyear']['$t'].strip())
+        )
+    except ValueError:
+        return False
 
 
 def generate_deportee_features(deportee_map_data):
     features = [
-        generate_feature(row) for row in deportee_map_data if valid_lat_long(row)
+        generate_feature(row) for row in deportee_map_data if valid_feature(row)
     ]
     return features
 
@@ -150,10 +160,19 @@ def generate_filters(properties_data):  # clean this up
     return output
 
 
+def generate_deportee_documents(deportee_documents_data):
+    unique_documents = list(
+        set([x['gsx$filenamenumber']['$t'] for x in deportee_documents_data])
+    )
+    remove_empty = [x for x in unique_documents if re.match('^DSCN', x)]
+    return remove_empty
+
+
 def main():
     """Main execution body."""
     map_data = requests.get(MAP_ENGINE_URL).json()['feed']['entry']
     properties_data = requests.get(PEOPLE_URL).json()['feed']['entry']
+    documents_data = requests.get(DOCUMENTS_URL).json()['feed']['entry']
 
     output = {
         "filters": generate_filters(properties_data),
@@ -163,11 +182,12 @@ def main():
     for deportee in output['filters']['name']:
         deportee_map_data = [row for row in map_data if row['gsx$name']['$t'] == deportee]
         deportee_properties_data = [row for row in properties_data if row['gsx$name']['$t'] == deportee]
-
+        deportee_documents_data = [row for row in documents_data if row['gsx$person']['$t'] == deportee]
         if deportee_map_data:  # What to do if name but no data?
             output['geojson'][deportee] = generate_deportee_feature_collection(
                 deportee_map_data,
-                deportee_properties_data
+                deportee_properties_data,
+                deportee_documents_data
             )
 
     export_output(output)

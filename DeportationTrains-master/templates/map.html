@@ -14,7 +14,7 @@
     <div class="row" id="map-row">
       <div class="col-md-4">
         <div class="row" id="filters">
-                <h4>Filter the map...</h4>
+                <h4>Map filters</h4>
             <div class="col-md-6">
                 <label for="trainid">Train</label>
                 <select class="form-control" id="trainid">
@@ -36,14 +36,6 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <h4>Or view an individual in greater detail.</h4>
-                <div class="col-md-12">
-                    <select class="form-control" id="name">
-                        <option value=""></option>
-                    </select>
-                </div>
-            </div>
         <hr>
         <div class="text-center">
             <div>
@@ -51,6 +43,15 @@
                 <button type="button" class="btn btn-danger" id="reset">Reset</button>
             </div>
         </div>
+		<hr>
+        <div class="row">
+            <h4>View an individual</h4>
+                <div class="col-md-12">
+                    <select class="form-control" id="name">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
       </div>
 
       <div class="col-md-8">
@@ -69,17 +70,15 @@
 	<div class="row">
         <div class="col-md-4">
             <div>
-                <h4>Key Documents</h4>
                 <h4>Their Story</h4>
+				<div id="personal-story"></div>
+                <h4>Key Documents</h4>
+				<div id="personal-documents"></div>
             </div>
         </div>
           <div class="col-md-8">
         <div id="secondary-map"></div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-          <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
         </div>
       </div>
       <div class="modal-footer">
@@ -93,7 +92,6 @@
 {% block scripts %}
 <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-
 <script src="{{ url_for('static', filename='js/iso8601.js') }}"></script>
 <script src="{{ url_for('static', filename='js/leaflet.timedimension.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/arc.js') }}"></script>

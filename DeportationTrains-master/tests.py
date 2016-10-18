@@ -13,16 +13,19 @@ def test_generate_deportee_feature_collection():
     pass  # Todo
 
 
-def test_valid_lat_long():
+def test_valid_feature():
     good_input = {
         'gsx$long': {
             '$t': '150.44'
         },
         'gsx$lat': {
             '$t': '42.524'
+        },
+        'gsx$startyear': {
+            '$t': '1918'
         }
     }
-    assert export.valid_lat_long(good_input)
+    assert export.valid_feature(good_input)
 
 
 def test_generate_deportee_features():

@@ -6,6 +6,20 @@ This project adheres to [Calendar Versioning](http://semver.org/).
 ### Added
 #### General
 - Update README regarding deployment details
+#### Frontend
+- Update landing page text, supplied by Ethan
+#### Backend
+- Implemented Click library for CLI
+- General improvement to CLI, building/deploying/running dev env etc.
+
+## [16.09.sprint2]
+- ??? Dragons be here. Sam merged his code. Rajani worked on tests. Liam didn't update this document.
+- Check commits for actual changes? :S Sorry.
+
+## [16.09.sprint1]
+### Added
+#### General
+- Update README regarding deployment details
 - Ignoring PEP8 line too long, though will still generally try to keep below 80 characters per line
 - Add .editorconfig to help with consistent style/clean files
 - General cleanup of dead code/files etc from repo

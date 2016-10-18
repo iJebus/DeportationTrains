@@ -32,6 +32,7 @@ class S3:
         else:
             self.bucket_path = ''
         self.client = self.create_client()
+        self.deploy()
 
     def create_client(self):
         return boto3.client(
@@ -68,13 +69,11 @@ class S3:
             sys.exit()
 
     def deploy(self):
-        print('Deploying to S3...')
         for root, dirs, files in os.walk('build'):
             for file in files:
                 local_path = os.path.join(root, file)
                 remote_path = local_path.replace('build/', self.bucket_path)
                 self.__upload_file(local_path, remote_path)
-        print('Deploy complete!')
 
 
 def provider(target):

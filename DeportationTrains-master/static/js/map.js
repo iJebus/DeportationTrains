@@ -17,12 +17,16 @@ $( document ).ready(function() {
 // **** Personal map page logic ****
 $('#personal-modal').on('shown.bs.modal', function (e) {
   personalMap = newTrainMap('secondary-map', 35, -95);
-  var person = $('#name').val();
-  populateMap(person);
+  var person_name = $('#name').val();
+  var person = mapData.geojson[person_name]
+  populatePersonalDetails(person);
+  //console.log(person);
+  populateMap(person.properties.name);
 })
 
 $('#personal-modal').on('hidden.bs.modal', function (e) {
   personalMap.remove();
+  resetPersonalDetails();
 })
 
 $('#name').change(function() {
@@ -31,13 +35,22 @@ $('#name').change(function() {
 });
 
 // **** Filters logic ****
-$("#reset").on("click", function () {
+function reset_filters() {
     $('select').val('');
-});
+}
 
-$("#apply").on("click", function () {
+function apply_filters() {
   var filters = getActiveFilters();
   mainMap.remove();
   mainMap = newTrainMap('main-map', 38, -97);
-  populateMap(null,filters);
+  populateMap(null, filters);
+}
+
+$("#reset").on("click", function () {
+    reset_filters();
+    apply_filters();
+});
+
+$("#apply").on("click", function () {
+    apply_filters();
 });

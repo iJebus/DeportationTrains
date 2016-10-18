@@ -17,6 +17,8 @@ function getLines(name)
                //gets array of lat and long
                var long= mapData.geojson[name]['features'][i].geometry.coordinates[0];
                var lat= mapData.geojson[name]['features'][i].geometry.coordinates[1];
+               //console.log(long);
+               //console.log(lat);
                if(arrested){ //when person is arrested we want to push coords to here
                    arrestedCoords.push(new L.LatLng(lat, long));
                    arrestedTimes.push(mapData.geojson[name]['features'][i].properties.time);
@@ -26,26 +28,37 @@ function getLines(name)
                   times.push(mapData.geojson[name]['features'][i].properties.time);
               }
       }
+ //console.log(name);
+ var man = coords.length;
+ /*
+ for(b = 0; b < man; b++){
+    console.log(coords[b].lat)
+ }*/
+ if(man == 1){
+   return 0 ;
+ }
 
  arrested = false;
  coordsv2 = [];
  //repeat twice once for arrested data and one for before arrest
  for(var c = 0; c < 2; c++){
    coordsv2 = [];
-   console.log(coords);
-   console.log(arrestedCoords[0]);
+   //console.log(coords);
+   //console.log(arrestedCoords[0]);
+   //console.log(name);
    if(c == 0){
      var tempCoords = coords;
      //if(typeof array != "undefined" && array != null && array.length > 0){
      //tempCoords.push(arrestedCoords[0]);
      var temptimes = times //.push(arrestedTimes[0]);
      var len = tempCoords.length;
-     console.log(coords);
+     //console.log("the lat + "+  coords.lat);
    }
    else{
      var tempCoords = arrestedCoords;
      var temptimes = arrestedTimes;
      var len = arrestedCoords.length;
+     //console.log("the lat + "+  arrestedCoords.lat);
     }
 
   var start = 0;
@@ -88,6 +101,7 @@ function getLines(name)
         };
       geojsonFeatures.push(geojsonFeature);
     }
+
     return geojsonFeatures;
 }
 

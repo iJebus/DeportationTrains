@@ -45,7 +45,7 @@ function addTimeDimension(map) {
       autoPlay: false,
       minSpeed: 1,
       speedStep: 1,
-      maxSpeed: 5,
+      maxSpeed: 10,
       timeSliderDragUpdate: true
   };
   var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
@@ -74,6 +74,7 @@ function newTrainMap(target, start_lat, start_long) {
   return map;
 }
 
+
 var overlayMaps = {}; //trail before people arrested
 var displayMaps = {}; //higlight a trail bfore arrest
 var arrestMaps = {}; //trail of arrested people
@@ -88,8 +89,16 @@ function populateMap(p, filters){
   arrestDisplay = {}; //highlights a trail after arrest
   var map1;
   if(!p) map1 = mainMap;
+  var mymy = 0;
   for (var person in mapData.geojson){
+
+    if(mymy > 1){
+      if(!p){
+        break;
+      }
+    }
     if(p){
+
       if(person != p) continue;
       else{
         map1 = personalMap;
@@ -109,6 +118,8 @@ function populateMap(p, filters){
     }
 
     var lines = getLines(person);
+    if(lines == 0){continue;}
+    console.log(person);
     //each line is given a style
     var jsonlayer = L.geoJson(lines[0], {style: style}).addTo(map1);
     var arrested = L.geoJson(lines[1], {style: arreststyle}).addTo(map1);
@@ -116,7 +127,7 @@ function populateMap(p, filters){
     var arrestedDisplayLayer =  L.geoJson(lines[1], {style: arrestDisplayStyle}).addTo(map1);
 
     //create a time dimension layer for each line so it can be animated
-    var person = L.timeDimension.layer.geoJson(jsonlayer, {
+    var personTL = L.timeDimension.layer.geoJson(jsonlayer, {
         updateTimeDimension: true,
         updateTimeDimensionMode: 'union',
         addlastPoint: false,
@@ -143,7 +154,7 @@ function populateMap(p, filters){
         waitForReady: true
     });
     //add all the layers to an array so we can add and remove them at will
-    overlayMaps[person] = person;
+    overlayMaps[person] = personTL;
     arrestMaps[person] = arrestedperson;
     displayMaps[person] = display;
     arrestDisplay[person] = arrestedDisplay;
@@ -161,6 +172,8 @@ function populateMap(p, filters){
     arrestMaps[person].addTo(map1);
     displayMaps[person].addTo(map1);
     arrestDisplay[person].addTo(map1);
+
+    mymy+=1;
   }
 
 }
@@ -196,14 +209,10 @@ var arrestDisplayStyle = {
 };
 
 
-
-
-//old code with markers
-
 /*
 function populateMap(p, filters) {
   if (p) {
-    var personGeoJson = L.geoJson(mapData.geojson[p], {
+    var personGeoJson = L.geoJson(p, {
       pointToLayer: function (feature, latlng) {
         return getMarker(feature, latlng);
       },
@@ -369,3 +378,31 @@ function getMarker(feature, latlng) {
   return marker;
 }
 */
+function populatePersonalDetails(person) {
+    let story = $('#personal-story');
+    let story_content = "\
+    <p><b>Case Number:</b> " + person.properties.casefilenumber + "</p>\
+    <p><b>Born:</b> " + (person.properties.birthyear || 'Unknown') + "</p>\
+    <p><b>Gender:</b> " + (person.properties.gender || 'Unknown') + "</p>\
+    <p><b>Ethnicity:</b> " + person.properties.ethnicity + "</p>\
+    <p><b>Citizenship:</b> " + person.properties.citizenship + "</p>\
+    <p><b>Occupations:</b> " + [person.properties.occupation1, person.properties.occupation2, person.properties.occupation3].join(', ') + "</p>\
+    <p><b>Deportation Route:</b> " + person.properties.trainid + "</p>\
+    <p><b>Married:</b> " + person.properties.marriagestatus + "</p>"
+    story.append(story_content);
+
+    let documents = $('#personal-documents');
+    let documents_content = "";
+    person.documents.forEach(function(x) {
+      documents_content += "<p><a target=\"_blank\" href=\"https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/" + x + "\">" + x + "</a></p>"
+    });
+    documents.append(documents_content);
+}
+
+function resetPersonalDetails() {
+    let story = $('#personal-documents');
+    let documents = $('#personal-story');
+    story.empty()
+    documents.empty();
+    console.log('reset documents');
+}

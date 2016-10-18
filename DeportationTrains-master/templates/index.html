@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block description %}US Deportation Trains{% endblock description %}
+{% block head %}{% endblock head %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Mapping the History of American Deportation Trains</h1>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Home &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Project &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Sources &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Acknowledgements &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="{{ url_for("map") }}" role="button">Map &raquo;</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" id="index-content">
+			<p>Between 1914 and the Second World War, "Deportation Special" trains made constant circuits through the United States. The reconfigured railroad cars gathered so-called "undesirable aliens" from around the country - disdained for their poverty, political radicalism, criminal conviction, or insanity: all compounded by maligned national and ethno-racial difference - and conveyed them to ports and borders for exile. This website explores the creation of deportation trains as mobile, carceral spaces, and argues that their history reveals a process through which US national territory, sovereignty, and community were created and contested.</p>
+			<p>The emergent deportation system conjoined a host of security-oriented laws, agencies and techniques, and enabled an expansive understanding of national protection. By examining the history of these trains, the website traces the administrative and material origins of mass removal from the United States. It argues that deportation involved the development of an apparatus of capture, and an apparatus of flow - historically novel modes of state practice with deep roots in America's past. Previous deportation procedures had been violent and relatively ad hoc. But the use of the railroad - perhaps the exemplary technology of industrial modernity - facililitated the mass expulsion of the undesirable. The technical capacity to deport large numbers of people, or at least to make a deportation credible threat, powerfully impacted those who remained. It load the groundwork for a system that would expand dramatically in the century to come.</p>
+			<p>The website is organized around the travels of specific people who were loaded aboard deportation trains, in their first five years of operation. By using the maps and visiting the pages, you can get a better sense of the paths that these migrants traveled, from their birth, across great distances, and then a sense of their lives in the United States. You can also learn how, and why, they came under the purview of the emergent deportation regime, as well as about their lives in detention centers, as well as more, when sources allow, about their experiences of forced removal, and speculation about their lives after deportation.</p>
+            <p><a class="btn btn-default" href="/map" role="button">View map &raquo;</a></p>
+        </div>
+        <div class="col-md-4" id="index-sidebar">
+            <img src="http://placehold.it/350x250" alt="Placeholder Image">
+            <img src="http://placehold.it/350x150" alt="Placeholder Image">
+        </div>
+    </div>
+{% endblock content %}
+{% block scripts %}{% endblock scripts %}
