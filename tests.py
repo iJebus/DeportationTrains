@@ -20,6 +20,9 @@ def test_valid_feature():
         },
         'gsx$lat': {
             '$t': '42.524'
+        },
+        'gsx$startyear': {
+            '$t': '1918'
         }
     }
     assert export.valid_feature(good_input)
