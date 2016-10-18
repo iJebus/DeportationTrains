@@ -184,6 +184,10 @@ const icons = {
       'icon': 'train',
       'markerColor': 'red'
   },
+  'Deportation main line': {
+      'icon': 'train',
+      'markerColor': 'red'
+  },
   'Deportation International Exiting': {
       'icon': 'sign-out',
       'markerColor': 'red'
