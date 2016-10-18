@@ -92,7 +92,7 @@ function populateMap(p, filters){
   var mymy = 0;
   for (var person in mapData.geojson){
 
-    if(mymy > 1){
+    if(mymy > 20){
       if(!p){
         break;
       }
