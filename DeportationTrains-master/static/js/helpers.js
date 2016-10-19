@@ -31,7 +31,9 @@ function addBasemap(map) {
 }
 
 function addTimeDimension(map) {
-  var timeDimension = new L.TimeDimension();
+  var timeDimension = new L.TimeDimension(
+    //{timeInterval: "1970-01-01T12:00:00Z/P50Y1M1DT2H1M"}
+  );
   map.timeDimension = timeDimension;
   var player = new L.TimeDimension.Player({
       transitionTime: 1000,
@@ -89,20 +91,30 @@ function populateMap(p, filters){
   arrestDisplay = {}; //highlights a trail after arrest
   var map1;
   if(!p) map1 = mainMap;
-  var mymy = 0;
+  var limit = 0;
   for (var person in mapData.geojson){
 
-    if(mymy > 20){
+    if(limit > 25){
       if(!p){
         break;
       }
     }
     if(p){
 
-      if(person != p) continue;
+      if(person != p.properties.name) continue;
       else{
         map1 = personalMap;
       }
+
+      var personGeoJson = L.geoJson(p, {
+        pointToLayer: function (feature, latlng) {
+          return getMarker(feature, latlng);
+        },
+        onEachFeature: onEachFeature
+      })
+
+      var personTimeLayer = addTimeLayer(personGeoJson);
+      personTimeLayer.addTo(personalMap);
     }
     if (filters) {
       var matched = 0;
@@ -140,14 +152,14 @@ function populateMap(p, filters){
         waitForReady: false
     });
     var display = L.timeDimension.layer.geoJson(displaylayer, {
-        updateTimeDimension: true,
+        updateTimeDimension: false,
         updateTimeDimensionMode: 'union',
         addlastPoint: false,
         duration: "P1D", //we only want the line to highlight breifly
         waitForReady: true
     });
     var arrestedDisplay = L.timeDimension.layer.geoJson(arrestedDisplayLayer, {
-        updateTimeDimension: true,
+        updateTimeDimension: false,
         updateTimeDimensionMode: 'union',
         addlastPoint: false,
         duration: "P1D", //we only want the line to highlight breifly
@@ -163,6 +175,7 @@ function populateMap(p, filters){
     map1.removeLayer(overlayMaps[person]);
     arrestMaps[person].addTo(map1);
     map1.removeLayer(arrestMaps[person]);
+
     displayMaps[person].addTo(map1);
     map1.removeLayer(displayMaps[person]);
     arrestDisplay[person].addTo(map1);
@@ -173,7 +186,7 @@ function populateMap(p, filters){
     displayMaps[person].addTo(map1);
     arrestDisplay[person].addTo(map1);
 
-    mymy+=1;
+    limit+=1;
   }
 
 }
@@ -257,7 +270,7 @@ function populateMap(p, filters) {
     }
   }
 }
-
+*/
 function addTimeLayer(personGeoJson) {
   return L.timeDimension.layer.geoJson(personGeoJson, {
         updateTimeDimension: true,
@@ -377,7 +390,7 @@ function getMarker(feature, latlng) {
   var marker = L.marker(latlng, {icon: icon});
   return marker;
 }
-*/
+
 function populatePersonalDetails(person) {
     let story = $('#personal-story');
     let story_content = "\

@@ -21,7 +21,7 @@ $('#personal-modal').on('shown.bs.modal', function (e) {
   var person = mapData.geojson[person_name]
   populatePersonalDetails(person);
   //console.log(person);
-  populateMap(person.properties.name);
+  populateMap(person);
 })
 
 $('#personal-modal').on('hidden.bs.modal', function (e) {
