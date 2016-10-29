@@ -83,8 +83,12 @@ var arrestMaps = {}; //trail of arrested people
 var arrestDisplay = {}; //highlights a trail after arrest
 var list;
 
-//creates all the geojson lines, time dimensions
-function populateMap(p, filters){
+/*creates all the geojson lines, time dimensions,
+p is a person for personal map (can leave null)
+filters are people to filters
+maxpeople is max number of people to be shown on map
+*/
+function populateMap(p, filters, maxpeople){
   overlayMaps = {}; //trail before people arrested
   displayMaps = {}; //higlight a trail bfore arrest
   arrestMaps = {}; //trail of arrested people
@@ -94,7 +98,7 @@ function populateMap(p, filters){
   var limit = 0;
   for (var person in mapData.geojson){
 
-    if(limit > 25){
+    if(limit > maxpeople){  //limits number of people shown on the map
       if(!p){
         break;
       }
