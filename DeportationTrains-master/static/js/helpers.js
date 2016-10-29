@@ -221,56 +221,6 @@ var arrestDisplayStyle = {
     "opacity": 1
 };
 
-
-/*
-function populateMap(p, filters) {
-  if (p) {
-    var personGeoJson = L.geoJson(p, {
-      pointToLayer: function (feature, latlng) {
-        return getMarker(feature, latlng);
-      },
-      onEachFeature: onEachFeature
-    })
-
-    var personTimeLayer = addTimeLayer(personGeoJson);
-    personTimeLayer.addTo(personalMap);
-  } else if (filters) {
-    for (var person in mapData.geojson) {
-      var matched = 0;
-      var activeFilters = Object.keys(filters).length;
-      for (var filter in filters) {
-        if (filters[filter] === mapData.geojson[person].properties[filter]) {
-           matched += 1;
-        }
-      }
-      if (matched === activeFilters) {
-          var personGeoJson = L.geoJson(mapData.geojson[person], {
-            pointToLayer: function (feature, latlng) {
-              return getMarker(feature, latlng);
-            },
-            onEachFeature: onEachFeature
-          });
-
-          var personTimeLayer = addTimeLayer(personGeoJson);
-          personTimeLayer.addTo(mainMap);
-        }
-      }
-  } else {
-    // Adds each person to the map, with custom icons
-    for (var person in mapData.geojson) {
-      var personGeoJson = L.geoJson(mapData.geojson[person], {
-        pointToLayer: function (feature, latlng) {
-          return getMarker(feature, latlng);
-        },
-        onEachFeature: onEachFeature
-      });
-
-      var personTimeLayer = addTimeLayer(personGeoJson);
-      personTimeLayer.addTo(mainMap);
-    }
-  }
-}
-*/
 function addTimeLayer(personGeoJson) {
   return L.timeDimension.layer.geoJson(personGeoJson, {
         updateTimeDimension: true,
@@ -330,6 +280,10 @@ const icons = {
       'markerColor': 'blue'
   },
   'Deportation Main Line': {
+      'icon': 'train',
+      'markerColor': 'red'
+  },
+  'Deportation main line': {
       'icon': 'train',
       'markerColor': 'red'
   },
@@ -406,8 +360,9 @@ function populatePersonalDetails(person) {
 
     let documents = $('#personal-documents');
     let documents_content = "";
+    let img_folder = "https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/"
     person.documents.forEach(function(x) {
-      documents_content += "<p><a target=\"_blank\" href=\"https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/" + x + "\">" + x + "</a></p>"
+      documents_content += "<p><a target=\"_blank\" href=\"" + img_folder + x + "\">" + "<img src=\"" + img_folder + "thumb_" + x + "\"></a></p>"
     });
     documents.append(documents_content);
 }
