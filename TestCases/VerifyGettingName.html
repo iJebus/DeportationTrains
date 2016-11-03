@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://127.0.0.1:5000/" />
-<title>verifyTrainFilter</title>
+<title>VerifyGettingName</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">verifyTrainFilter</td></tr>
+<tr><td rowspan="1" colspan="3">VerifyGettingName</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -22,45 +22,51 @@
 	<td></td>
 </tr>
 <tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
 	<td>select</td>
-	<td>id=trainid</td>
-	<td>label=Westbound May-June 1919</td>
+	<td>id=name</td>
+	<td>label=Luey Mo</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Luey Mo</td>
+	<td>Name</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=apply</td>
+	<td>//div[@id='secondary-map']/div/div[4]/div[4]/i</td>
 	<td></td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>null</td>
+	<td>pause</td>
+	<td>3000</td>
 	<td></td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>null</td>
+	<td>storeTable</td>
+	<td>css=table.table.7.1</td>
+	<td>MapName</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${MapName}</td>
 	<td></td>
 </tr>
 <tr>
-	<td>storeElementPresent</td>
-	<td>id=main-map</td>
-	<td></td>
+	<td>storeEval</td>
+	<td>storedVars['Name']==storedVars['MapName']</td>
+	<td>Result</td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
-	<td>assignId</td>
-	<td>html body div.container div#map-row.row div.col-md-8 div#main-map.leaflet-container.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag div.leaflet-pane.leaflet-map-pane div.leaflet-pane.leaflet-overlay-pane svg.leaflet-zoom-animated g path.leaflet-interactive</td>
-	<td>Line</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>line</td>
+	<td>echo</td>
+	<td>${Result}</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>
