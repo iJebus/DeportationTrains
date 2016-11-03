@@ -1,0 +1,8 @@
+# testing/experimenting
+language: python
+python:
+  - "3.5"
+install: "pip install -r requirements.txt"
+script:
+  - python export.py && py.test tests.py && python run.py build && python run.py deploy S3 # test export script
+  # Phantomjs? Selenium? Neither and use python? - phantomjs testrunner.js

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Map{% endblock title %}
+{% block description %}Mapping deportees{% endblock description %}
+
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/leaflet.timedimension.control.min.css') }}"></script>
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+    <div class="row" id="map-row">
+      <div class="col-md-4">
+        <div class="row" id="filters">
+                <h4>Map filters</h4>
+            <div class="col-md-6">
+                <label for="trainid">Train</label>
+                <select class="form-control" id="trainid">
+                    <option value=""></option>
+                </select>
+                <label for="ethnicity">Nationality</label>
+                <select class="form-control" id="ethnicity">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="justificationforremovalprimary">Offence</label>
+                <select class="form-control" id="justificationforremovalprimary">
+                    <option value=""></option>
+                </select>
+                <label for="sex">Gender</label>
+                <select class="form-control" id="sex">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <div>
+                <button type="button" class="btn btn-primary" id="apply">Apply</button>
+                <button type="button" class="btn btn-danger" id="reset">Reset</button>
+            </div>
+        </div>
+		<hr>
+        <div class="row">
+            <h4>View an individual</h4>
+                <div class="col-md-12">
+                    <select class="form-control" id="name">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+      </div>
+
+      <div class="col-md-8">
+        <div id="main-map"></div>
+      </div>
+    </div>
+
+<div class="modal fade" id="personal-modal" tabindex="-1" role="dialog" aria-labelledby="personal-modal-label">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="personal-modal-label">Take a closer look...</h3>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+        <div class="col-md-4">
+            <div>
+                <h4>Their Story</h4>
+				<div id="personal-story"></div>
+                <h4>Key Documents</h4>
+				<div id="personal-documents"></div>
+            </div>
+        </div>
+          <div class="col-md-8">
+        <div id="secondary-map"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<script src="{{ url_for('static', filename='js/iso8601.js') }}"></script>
+<script src="{{ url_for('static', filename='js/leaflet.timedimension.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/arc.js') }}"></script>
+<script src="{{ url_for('static', filename='js/getLines.js') }}"></script>
+<script src="{{ url_for('static', filename='js/helpers.js') }}"></script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock scripts %}

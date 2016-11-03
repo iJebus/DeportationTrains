@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block description %}Description Text{% endblock description %}
+{% block head %}{% endblock head %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Mapping the History of American Deportation Trains</h1>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Home &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Project &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Sources &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Acknowledgements &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="{{ url_for("map") }}" role="button">Map &raquo;</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id="index-sidebar">
+            <img src="http://placehold.it/350x250" alt="Placeholder Image">
+        </div>
+        <div class="col-md-8" id="index-content">
+            <h2>The Trains</h2>
+            <p>This project draws on a complex database drawn from US department of labor case files of people who were deported from the United States in the early 20th century. The database was developed with colleagues from Stanford University's Center
+                for Spatial and Textual Analysis, a world-leading centre in digital humanities and the emergent field known as `spatial history.' The database records the spatial and temporal information of numerous people from around the world as they
+                travelled to the USA, but were then captured and deported as so-called `undesirable aliens.' The information contains elements of migrants' lives prior to their arrival in the United States and within the United States; information about
+                when, where, and why they were arrested; and information about their forced migration as deportees.</p>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8" id="index-content">
+            <h2>The passengers</h2>
+            <p>This project draws on a complex database drawn from US department of labor case files of people who were deported from the United States in the early 20th century. The database was developed with colleagues from Stanford University's Center
+                for Spatial and Textual Analysis, a world-leading centre in digital humanities and the emergent field known as `spatial history.' The database records the spatial and temporal information of numerous people from around the world as they
+                travelled to the USA, but were then captured and deported as so-called `undesirable aliens.' The information contains elements of migrants' lives prior to their arrival in the United States and within the United States; information about
+                when, where, and why they were arrested; and information about their forced migration as deportees.</p>
+            <h3>Mexicans</h3>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <h3>Chinese</h3>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        </div>
+        <div class="col-md-4 text-center" id="index-sidebar">
+            <img src="http://placehold.it/200x400" alt="Placeholder Image">
+        </div>
+
+    </div>
+{% endblock content %}
+{% block scripts %}{% endblock scripts %}
