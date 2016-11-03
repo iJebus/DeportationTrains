@@ -31,7 +31,9 @@ function addBasemap(map) {
 }
 
 function addTimeDimension(map) {
-  var timeDimension = new L.TimeDimension();
+  var timeDimension = new L.TimeDimension(
+    //{timeInterval: "1970-01-01T12:00:00Z/P50Y1M1DT2H1M"}
+  );
   map.timeDimension = timeDimension;
   var player = new L.TimeDimension.Player({
       transitionTime: 1000,
@@ -45,7 +47,7 @@ function addTimeDimension(map) {
       autoPlay: false,
       minSpeed: 1,
       speedStep: 1,
-      maxSpeed: 5,
+      maxSpeed: 10,
       timeSliderDragUpdate: true
   };
   var timeDimensionControl = new L.Control.TimeDimension(timeDimensionControlOptions);
@@ -74,19 +76,47 @@ function newTrainMap(target, start_lat, start_long) {
   return map;
 }
 
-function populateMap(p, filters) {
-  if (p) {
-    var personGeoJson = L.geoJson(p, {
-      pointToLayer: function (feature, latlng) {
-        return getMarker(feature, latlng);
-      },
-      onEachFeature: onEachFeature
-    })
 
-    var personTimeLayer = addTimeLayer(personGeoJson);
-    personTimeLayer.addTo(personalMap);
-  } else if (filters) {
-    for (var person in mapData.geojson) {
+var overlayMaps = {}; //trail before people arrested
+var displayMaps = {}; //higlight a trail bfore arrest
+var arrestMaps = {}; //trail of arrested people
+var arrestDisplay = {}; //highlights a trail after arrest
+var list;
+
+//creates all the geojson lines, time dimensions
+function populateMap(p, filters){
+  overlayMaps = {}; //trail before people arrested
+  displayMaps = {}; //higlight a trail bfore arrest
+  arrestMaps = {}; //trail of arrested people
+  arrestDisplay = {}; //highlights a trail after arrest
+  var map1;
+  if(!p) map1 = mainMap;
+  var limit = 0;
+  for (var person in mapData.geojson){
+
+    if(limit > 25){
+      if(!p){
+        break;
+      }
+    }
+    if(p){
+
+      if(person != p.properties.name) continue;
+      else{
+        map1 = personalMap;
+      }
+
+      var personGeoJson = L.geoJson(p, {
+        pointToLayer: function (feature, latlng) {
+          return getMarker(feature, latlng);
+        },
+        onEachFeature: onEachFeature
+      })
+
+      var personTimeLayer = addTimeLayer(personGeoJson);
+      personTimeLayer.addTo(personalMap);
+    }
+    if (filters) {
       var matched = 0;
       var activeFilters = Object.keys(filters).length;
       for (var filter in filters) {
@@ -94,33 +124,102 @@ function populateMap(p, filters) {
            matched += 1;
         }
       }
-      if (matched === activeFilters) {
-          var personGeoJson = L.geoJson(mapData.geojson[person], {
-            pointToLayer: function (feature, latlng) {
-              return getMarker(feature, latlng);
-            },
-            onEachFeature: onEachFeature
-          });
-
-          var personTimeLayer = addTimeLayer(personGeoJson);
-          personTimeLayer.addTo(mainMap);
-        }
+      if (!(matched === activeFilters)) {
+          continue;
       }
-  } else {
-    // Adds each person to the map, with custom icons
-    for (var person in mapData.geojson) {
-      var personGeoJson = L.geoJson(mapData.geojson[person], {
-        pointToLayer: function (feature, latlng) {
-          return getMarker(feature, latlng);
-        },
-        onEachFeature: onEachFeature
-      });
-
-      var personTimeLayer = addTimeLayer(personGeoJson);
-      personTimeLayer.addTo(mainMap);
     }
+
+    var lines = getLines(person);
+    if(lines == 0){continue;}
+    console.log(person);
+    //each line is given a style
+    var jsonlayer = L.geoJson(lines[0], {style: style}).addTo(map1);
+    var arrested = L.geoJson(lines[1], {style: arreststyle}).addTo(map1);
+    var displaylayer = L.geoJson(lines[0], {style: style2}).addTo(map1);
+    var arrestedDisplayLayer =  L.geoJson(lines[1], {style: arrestDisplayStyle}).addTo(map1);
+
+    //create a time dimension layer for each line so it can be animated
+    var personTL = L.timeDimension.layer.geoJson(jsonlayer, {
+        updateTimeDimension: true,
+        updateTimeDimensionMode: 'union',
+        addlastPoint: false,
+        waitForReady: false
+    });
+    var arrestedperson = L.timeDimension.layer.geoJson(arrested, {
+        updateTimeDimension: true,
+        updateTimeDimensionMode: 'union',
+        addlastPoint: false,
+        waitForReady: false
+    });
+    var display = L.timeDimension.layer.geoJson(displaylayer, {
+        updateTimeDimension: false,
+        updateTimeDimensionMode: 'union',
+        addlastPoint: false,
+        duration: "P1D", //we only want the line to highlight breifly
+        waitForReady: true
+    });
+    var arrestedDisplay = L.timeDimension.layer.geoJson(arrestedDisplayLayer, {
+        updateTimeDimension: false,
+        updateTimeDimensionMode: 'union',
+        addlastPoint: false,
+        duration: "P1D", //we only want the line to highlight breifly
+        waitForReady: true
+    });
+    //add all the layers to an array so we can add and remove them at will
+    overlayMaps[person] = personTL;
+    arrestMaps[person] = arrestedperson;
+    displayMaps[person] = display;
+    arrestDisplay[person] = arrestedDisplay;
+
+    overlayMaps[person].addTo(map1);
+    map1.removeLayer(overlayMaps[person]);
+    arrestMaps[person].addTo(map1);
+    map1.removeLayer(arrestMaps[person]);
+
+    displayMaps[person].addTo(map1);
+    map1.removeLayer(displayMaps[person]);
+    arrestDisplay[person].addTo(map1);
+    map1.removeLayer(arrestDisplay[person]);
+
+    overlayMaps[person].addTo(map1);
+    arrestMaps[person].addTo(map1);
+    displayMaps[person].addTo(map1);
+    arrestDisplay[person].addTo(map1);
+
+    limit+=1;
   }
+
 }
+
+
+
+//style signifies a persons trail before arrest
+var style = {
+  "color": "blue",
+    "weight": 3,
+    "opacity": 0.3
+};
+
+//style is used to highlight most recently added trail breifly (before arrest)
+var style2 = {
+  "color": "blue",
+    "weight": 3,
+    "opacity": 1
+};
+
+//style is used to show trail of person after arrest
+var arreststyle = {
+    "color": "red",
+    "weight": 3,
+    "opacity": 0.3
+};
+
+//style used to higlight modt recently added trail (arrest)
+var arrestDisplayStyle = {
+    "color": "red",
+    "weight": 3,
+    "opacity": 1
+};
 
 function addTimeLayer(personGeoJson) {
   return L.timeDimension.layer.geoJson(personGeoJson, {
@@ -275,5 +374,3 @@ function resetPersonalDetails() {
     documents.empty();
     console.log('reset documents');
 }
-
-

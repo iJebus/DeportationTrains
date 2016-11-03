@@ -20,6 +20,7 @@ $('#personal-modal').on('shown.bs.modal', function (e) {
   var person_name = $('#name').val();
   var person = mapData.geojson[person_name]
   populatePersonalDetails(person);
+  //console.log(person);
   populateMap(person);
 })
 
