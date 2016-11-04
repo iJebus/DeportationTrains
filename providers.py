@@ -7,7 +7,7 @@ import mimetypes
 import logging
 import sys
 
-#from PIL import Image
+from PIL import Image
 
 BOTO_ERRORS = {
     'SignatureDoesNotMatch': 'The AWS key credential appears to be incorrect. Check config.yml or your AWS_SECRET_ACCESS_KEY_ID environment variable.',

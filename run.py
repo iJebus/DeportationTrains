@@ -78,4 +78,4 @@ def dev():
 
 # Replace this logic with click library
 if __name__ == '__main__':
-    cli();
+    cli()
