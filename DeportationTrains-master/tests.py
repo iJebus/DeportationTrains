@@ -4,15 +4,25 @@ import unittest
 def test_offset_date():
     assert export.offset_date('05', '01', '1991', 5) == '1996-01-05'
 
-def test_offset_date():
-    assert export.offset_date('05', '01', '1991', 10) == '2001-01-05'
+def test_offset_date_2():
+    try:
+        export.offset_date('05', 'ss', '1991', 10) == '2001-01-05' #invalid input should throw exception
+        assert False
+    except KeyError:
+        assert True
 
-def test_offset_date():
-    assert export.offset_date('05', '01', '191', 0) != '191-01-05' #invalid data format
+def test_offset_date_3():
+    try:
+        export.offset_date('05', '01', '191', 0) != '191-01-05' #invalid data format show throw exception
+        assert False
+    except KeyError:
+        assert True
 
 def test_date_certainty():
     assert export.date_certainty('05', '01', '1991') == 'Exact'
 
+def test_date_certainty():
+    assert export.date_certainty('05', 0, '1991') == 'Estimated'
 
 def test_generate_deportee_feature_collection():
     pass  # Todo
@@ -31,6 +41,23 @@ def test_valid_feature():
         }
     }
     assert export.valid_feature(good_input)
+
+def test_valid_feature_2():
+    bad_input = {
+        'gsx$long': {
+            '$fft': '150.44'
+        },
+        'gsx$ldfasdfasdat': {
+            '$t': '42.5df24'
+        },
+        'gsxasfyear': {
+            '$t': '1918'
+        }
+    }
+    try:
+        assert export.valid_feature(bad_input)
+    except KeyError:
+        assert True
 
 def test_generate_deportee_features():
     pass  # Todo
