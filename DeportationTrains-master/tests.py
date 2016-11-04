@@ -4,6 +4,11 @@ import unittest
 def test_offset_date():
     assert export.offset_date('05', '01', '1991', 5) == '1996-01-05'
 
+def test_offset_date():
+    assert export.offset_date('05', '01', '1991', 10) == '2001-01-05'
+
+def test_offset_date():
+    assert export.offset_date('05', '01', '191', 0) != '191-01-05' #invalid data format
 
 def test_date_certainty():
     assert export.date_certainty('05', '01', '1991') == 'Exact'
@@ -25,7 +30,7 @@ def test_valid_feature():
             '$t': '1918'
         }
     }
-    assert export.valid_feature(good_input) == False
+    assert export.valid_feature(good_input)
 
 def test_generate_deportee_features():
     pass  # Todo
