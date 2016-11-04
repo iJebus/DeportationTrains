@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:5000/" />
+<title>VerifyIndividualPage2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">VerifyIndividualPage2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://127.0.0.1:5000/map/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPageToLoad</td>
+	<td>70000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=name</td>
+	<td>label=Hannah Sullivan</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Hannah Sullivan</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>id=personal-modal-label</td>
+	<td>OpenDocument</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${OpenDocument}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['Name']==storedVars['OpenDocument']</td>
+	<td>Result</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${Result}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//*[@id=&quot;personal-story&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//img[contains(@src,'https://s3-ap-southeast-2.amazonaws.com/deportation-trains/static/img/thumb_DSCN3029.JPG')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=secondary-map</td>
+	<td>+-<br /><br /><br />2019-07-03T00:00:00.000Z<br /><br /><br />1fps<br /><br /><br /><br /><br />Leaflet | Map data © OpenStreetMap contributors, CC-BY-SA, Imagery © Mapbox</td>
+</tr>
+</tbody></table>
+</body>
+</html>
