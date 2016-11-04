@@ -13,7 +13,7 @@ def test_offset_date_2():
 
 def test_offset_date_3():
     try:
-        export.offset_date('05', '01', '191', 0) != '191-01-05' #invalid data format show throw exception
+        export.offset_date('05', '01', '191', 0) != '191-01-05' #invalid data format should throw exception
         assert False
     except KeyError:
         assert True
@@ -21,8 +21,11 @@ def test_offset_date_3():
 def test_date_certainty():
     assert export.date_certainty('05', '01', '1991') == 'Exact'
 
-def test_date_certainty():
+def test_date_certainty_2():
     assert export.date_certainty('05', 0, '1991') == 'Estimated'
+
+def test_date_certainty_3():
+    assert export.date_certainty('sdas', '', '1991') == 'Estimated'
 
 def test_generate_deportee_feature_collection():
     pass  # Todo
@@ -98,6 +101,11 @@ def test_generate_deportee_properties():
     expected = {'citizenship': 'China', 'travelingwithchildrennumber': 'N', 'literate': 'N', 'name': 'Yuen Chung', 'uniqueid': '131', 'justificationforremovalsecondary': '', 'occupation2': '', 'birthmonth': '', 'birthyear': '1876', 'sex': 'M', 'casefilenumber': '53855/23', 'documentrefernce': 'Yuen Chung - 17; DSCN7735.JPG', 'notesdocument': '', 'occupation1': 'Laborer', 'ethnicity': 'Chinese', 'trainid': 'Eastbound January 1915', 'marriagestatus': 'Single', 'aliasesothernames': 'Foh Ying, Yuen Hoy Yick', 'occupation3': '', 'justificationforremovalprimary': 'Violation of Chinese Exclusion Act', 'birthdate': '', 'justificationforremovaltertiary': ''}
     assert output == expected
 
+def test_generate_deportee_properties_2():
+    properties_data = "bad"
+    output = export.generate_deportee_properties(properties_data)
+    expected = {}
+    assert output == expected
 
 def test_export_output():
     import json
@@ -119,6 +127,20 @@ def test_export_output():
         data = f.read()
     assert output == json.loads(data)
 
+#check how the function deals with non json files and output,
+#not sure if matters
+def test_export_output_2():
+    import json
+    file_path = 'tmp/test_export_output_2.xml'
+    notJsonOutput = 674
+    try:
+        export.export_output(notJsonOutput, file_path=file_path)
+    except KeyError:
+        assert True
+    with open(file_path) as f:
+        data = f.read()
+    assert notJsonOutput == json.loads(data)
+
 
 def test_generate_filters():
     import requests
@@ -130,3 +152,4 @@ def test_generate_filters():
     properties_data = requests.get(PEOPLE_URL).json()['feed']['entry'] #retrieve data from spreadsheet
     output = {"filters": export.generate_filters(properties_data)}
     assert len(output['filters']) == 22  #the number of different filters in spreadsheet, errm not sure how else to test
+x
