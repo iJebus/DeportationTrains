@@ -135,7 +135,6 @@ function populateMap(p, filters, maxpeople){
 
     var lines = getLines(person);
     if(lines == 0){continue;}
-    console.log(person);
     //each line is given a style
     var jsonlayer = L.geoJson(lines[0], {style: style}).addTo(map1);
     var arrested = L.geoJson(lines[1], {style: arreststyle}).addTo(map1);
@@ -147,13 +146,13 @@ function populateMap(p, filters, maxpeople){
         updateTimeDimension: true,
         updateTimeDimensionMode: 'union',
         addlastPoint: false,
-        waitForReady: false
+        waitForReady: true
     });
     var arrestedperson = L.timeDimension.layer.geoJson(arrested, {
         updateTimeDimension: true,
         updateTimeDimensionMode: 'union',
         addlastPoint: false,
-        waitForReady: false
+        waitForReady: true
     });
     var display = L.timeDimension.layer.geoJson(displaylayer, {
         updateTimeDimension: false,
