@@ -9,7 +9,7 @@ $( document ).ready(function() {
     mapData = data;
   }).done(function() {
     mainMap = newTrainMap('main-map', 38, -97);
-    populateMap();
+    populateMap(null,null,25);
     populateFilters();
   });
 });
@@ -21,7 +21,7 @@ $('#personal-modal').on('shown.bs.modal', function (e) {
   var person = mapData.geojson[person_name]
   populatePersonalDetails(person);
   //console.log(person);
-  populateMap(person);
+  populateMap(person, null, 1);
 })
 
 $('#personal-modal').on('hidden.bs.modal', function (e) {
@@ -43,7 +43,7 @@ function apply_filters() {
   var filters = getActiveFilters();
   mainMap.remove();
   mainMap = newTrainMap('main-map', 38, -97);
-  populateMap(null, filters);
+  populateMap(null, filters, 25);
 }
 
 $("#reset").on("click", function () {
